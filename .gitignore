@@ -1,2 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
+
+### Blender ###
+# Ignore temporary Blender files.
+*.blend[0-9]*
