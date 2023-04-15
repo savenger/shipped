@@ -105,10 +105,11 @@ func _generateBridgeArea():
 	_placeBridge(horizontal, c.position.x, c.position.z, scale_factor, scale_factor2)
 
 func _generateIslands():
-	for x in range(mapSize):
-		for z in range(mapSize):
-			if rng.randf() > 0.95:
-				_placeIsland(x, z)
+	while len(islands) <= 1:
+		for x in range(mapSize):
+			for z in range(mapSize):
+				if rng.randf() > 0.9:
+					_placeIsland(x, z)
 				
 
 func _generateGround():
