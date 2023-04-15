@@ -72,3 +72,7 @@ func _on_delivered():
 	# Reset cargo amount
 	cargo_amount = 0
 	print("Reset cargo amount")
+
+
+func _on_body_entered(body):
+	print(body)

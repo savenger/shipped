@@ -35,7 +35,7 @@ func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_f
 		c.position.x = pen_size_1 - (mapSize * chunkSize) / 2 + pen_gap / 2
 		c.position.z = z
 		c.scale.x = scale * mapSize * chunkSize
-	c.position.y = 4
+	c.position.y = 10
 	$base.add_child(c)
 
 func _placeLand(c: CSGShape3D):
@@ -50,7 +50,7 @@ func _placeIsland(x: int, z: int):
 	c.position.z = z * chunkSize - (mapSize * chunkSize) / 2
 	c.scale.x = rng.randf_range(10.0,15.0)
 	c.scale.z = rng.randf_range(10.0,15.0)
-	c.scale.y = 3.0
+	c.scale.y = 8.0
 	_placeLand(c)
 	islands.append({'x': c.position.x, 'z': c.position.z})
 
@@ -67,26 +67,26 @@ func _generateBridgeArea():
 		
 		c.scale.x = rng.randf_range(10.0,15.0)
 		c.scale.z = (chunkSize * mapSize * scale_factor) / 2
-		c.scale.y = 6.0
+		c.scale.y = 12.0
 		c.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
 		c.position.z = -(mapSize * chunkSize) / 2 + (c.scale.z) / 2
 		_placeLand(c)
 		c2.scale.x = rng.randf_range(10.0,15.0)
 		c2.scale.z = (chunkSize * mapSize * scale_factor2) / 2
-		c2.scale.y = 6.0
+		c2.scale.y = 12.0
 		c2.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
 		c2.position.z = (mapSize * chunkSize) / 2 - (c2.scale.z) / 2
 		_placeLand(c2)
 	else:
 		c.scale.x = (chunkSize * mapSize * scale_factor) / 2
 		c.scale.z = rng.randf_range(10.0,15.0)
-		c.scale.y = 6.0
+		c.scale.y = 12.0
 		c.position.x = -(mapSize * chunkSize) / 2 + (c.scale.x) / 2
 		c.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
 		_placeLand(c)
 		c2.scale.x = (chunkSize * mapSize * scale_factor2) / 2
 		c2.scale.z = rng.randf_range(10.0,15.0)
-		c2.scale.y = 6.0
+		c2.scale.y = 12.0
 		c2.position.x = (mapSize * chunkSize) / 2 - (c2.scale.x) / 2
 		c2.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
 		_placeLand(c2)
