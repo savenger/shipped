@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://lkfy15244dxg"]
+[gd_scene load_steps=16 format=3 uid="uid://lkfy15244dxg"]
 
 [ext_resource type="Script" path="res://ThunderStorm/ThunderStorm.gd" id="1_0uv10"]
 [ext_resource type="Texture2D" uid="uid://blsj8j1cge4od" path="res://ThunderStorm/LightningTexture.png" id="2_1p26f"]
 [ext_resource type="QuadMesh" uid="uid://cesv6k7syl4ai" path="res://Materials/Smoke.tres" id="2_p4ilb"]
+
+[sub_resource type="Gradient" id="Gradient_i36v3"]
+offsets = PackedFloat32Array(0, 0.213287, 0.702797, 1)
+colors = PackedColorArray(0.580392, 0.580392, 0.580392, 0, 0.408329, 0.40833, 0.408329, 1, 0.589095, 0.589096, 0.589095, 1, 0.544974, 0.544974, 0.544974, 0)
 
 [sub_resource type="Gradient" id="Gradient_f7bs4"]
 offsets = PackedFloat32Array(0, 0.222628, 0.463504, 0.715328, 1)
@@ -65,7 +69,21 @@ size = Vector3(8, 30, 8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 16.733)
 script = ExtResource("1_0uv10")
 
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 32
+lifetime = 5.0
+mesh = ExtResource("2_p4ilb")
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_amount_min = 8.0
+scale_amount_max = 12.0
+color_ramp = SubResource("Gradient_i36v3")
+
 [node name="CloudParticles" type="GPUParticles3D" parent="."]
+visible = false
 amount = 128
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_pvpmx")
