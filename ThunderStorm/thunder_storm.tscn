@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://lkfy15244dxg"]
+
+[ext_resource type="Texture2D" uid="uid://kytp0p4uyrrv" path="res://ThunderStorm/Smoke_Texture.png" id="1_p1076"]
+
+[sub_resource type="Gradient" id="Gradient_f7bs4"]
+offsets = PackedFloat32Array(0, 0.222628, 0.463504, 0.715328, 1)
+colors = PackedColorArray(0.393086, 0.393086, 0.393085, 0, 0.590651, 0.640392, 0.768928, 1, 0.682465, 0.723971, 0.829918, 1, 0.551133, 0.603309, 0.738944, 1, 0.233038, 0.270984, 0.373887, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nysud"]
+gradient = SubResource("Gradient_f7bs4")
+
+[sub_resource type="Curve" id="Curve_2qu0o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n1h6s"]
+curve = SubResource("Curve_2qu0o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvpmx"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 1, 4)
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_n1h6s")
+color_ramp = SubResource("GradientTexture1D_nysud")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfns7"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_p1076")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_p5h7q"]
+material = SubResource("StandardMaterial3D_gfns7")
+
+[sub_resource type="Gradient" id="Gradient_6xcks"]
+offsets = PackedFloat32Array(0, 0.233577, 0.813869, 1)
+colors = PackedColorArray(1, 1, 1, 0, 3.85046e-06, 0.726573, 0.910158, 1, 0.204147, 0.818295, 0.975515, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jh0ik"]
+gradient = SubResource("Gradient_6xcks")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wbji"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 0.1, 4)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+color_ramp = SubResource("GradientTexture1D_jh0ik")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku8oq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_dqxru"]
+material = SubResource("StandardMaterial3D_ku8oq")
+size = Vector2(0.05, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp3cq"]
+size = Vector3(8, 30, 8)
+
+[node name="ThunderStorm" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 16.733)
+
+[node name="CloudParticles" type="GPUParticles3D" parent="."]
+amount = 128
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_pvpmx")
+draw_pass_1 = SubResource("QuadMesh_p5h7q")
+
+[node name="RainParticles" type="GPUParticles3D" parent="."]
+amount = 32
+visibility_aabb = AABB(-4, -27.514, -4, 8, 55.028, 8)
+process_material = SubResource("ParticleProcessMaterial_1wbji")
+draw_pass_1 = SubResource("QuadMesh_dqxru")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tp3cq")
