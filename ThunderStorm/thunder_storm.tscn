@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://lkfy15244dxg"]
+[gd_scene load_steps=15 format=3 uid="uid://lkfy15244dxg"]
 
 [ext_resource type="Script" path="res://ThunderStorm/ThunderStorm.gd" id="1_0uv10"]
-[ext_resource type="Texture2D" uid="uid://kytp0p4uyrrv" path="res://ThunderStorm/Smoke_Texture.png" id="1_p1076"]
 [ext_resource type="Texture2D" uid="uid://blsj8j1cge4od" path="res://ThunderStorm/LightningTexture.png" id="2_1p26f"]
+[ext_resource type="QuadMesh" uid="uid://cesv6k7syl4ai" path="res://Materials/Smoke.tres" id="2_p4ilb"]
 
 [sub_resource type="Gradient" id="Gradient_f7bs4"]
 offsets = PackedFloat32Array(0, 0.222628, 0.463504, 0.715328, 1)
@@ -29,20 +29,6 @@ scale_min = 8.0
 scale_max = 12.0
 scale_curve = SubResource("CurveTexture_n1h6s")
 color_ramp = SubResource("GradientTexture1D_nysud")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfns7"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_p1076")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_p5h7q"]
-material = SubResource("StandardMaterial3D_gfns7")
 
 [sub_resource type="Gradient" id="Gradient_6xcks"]
 offsets = PackedFloat32Array(0, 0.233577, 0.813869, 1)
@@ -83,7 +69,7 @@ script = ExtResource("1_0uv10")
 amount = 128
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_pvpmx")
-draw_pass_1 = SubResource("QuadMesh_p5h7q")
+draw_pass_1 = ExtResource("2_p4ilb")
 
 [node name="RainParticles" type="GPUParticles3D" parent="."]
 amount = 64
