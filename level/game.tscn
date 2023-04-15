@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://ddqpjbaduw5w0"]
+
+[ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
+[ext_resource type="Shader" path="res://level/water.gdshader" id="3_k1ggt"]
+[ext_resource type="PackedScene" uid="uid://dx5ef6x3ra2g" path="res://ship/ship.tscn" id="3_p70qk"]
+[ext_resource type="Script" path="res://level/Water.gd" id="3_wo30p"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5voth"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q30fx"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_5voth")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e17lk"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3pe1h"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_e17lk")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3c421"]
+noise_type = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4smob"]
+seamless = true
+noise = SubResource("FastNoiseLite_3c421")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ti5nj"]
+render_priority = 0
+shader = ExtResource("3_k1ggt")
+shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
+shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)
+shader_parameter/color_deep = Color(0.105882, 0.294118, 0.329412, 1)
+shader_parameter/color_shallow = Color(0, 0.552941, 0.65098, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_time = 0.0
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_2_direction = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/wave_speed = 0.2
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.01
+shader_parameter/beers_law = 0.089
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.362
+shader_parameter/near = 0.5
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0.552941, 0.65098, 1)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_q30fx")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_3pe1h")
+shader_parameter/wave = SubResource("NoiseTexture2D_4smob")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nub8u"]
+material = SubResource("ShaderMaterial_ti5nj")
+size = Vector2(10, 10)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="Environment" id="Environment_m4ws3"]
+ambient_light_color = Color(0.980392, 0.980392, 0.980392, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="terrain" type="Node" parent="."]
+script = ExtResource("1_rwlqv")
+
+[node name="Water" type="MeshInstance3D" parent="terrain"]
+transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nub8u")
+script = ExtResource("3_wo30p")
+
+[node name="rendering" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="rendering"]
+transform = Transform3D(0.994858, 0.0457289, 0.090371, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 17.4581, 14.2385)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="rendering"]
+transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 1.32951, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="rendering"]
+environment = SubResource("Environment_m4ws3")
+
+[node name="ship" parent="." instance=ExtResource("3_p70qk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.434, 3, 2.453)
