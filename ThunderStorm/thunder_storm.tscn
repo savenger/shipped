@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://lkfy15244dxg"]
+[gd_scene load_steps=17 format=3 uid="uid://lkfy15244dxg"]
 
+[ext_resource type="Script" path="res://ThunderStorm/ThunderStorm.gd" id="1_0uv10"]
 [ext_resource type="Texture2D" uid="uid://kytp0p4uyrrv" path="res://ThunderStorm/Smoke_Texture.png" id="1_p1076"]
+[ext_resource type="Texture2D" uid="uid://blsj8j1cge4od" path="res://ThunderStorm/LightningTexture.png" id="2_1p26f"]
 
 [sub_resource type="Gradient" id="Gradient_f7bs4"]
 offsets = PackedFloat32Array(0, 0.222628, 0.463504, 0.715328, 1)
@@ -74,6 +76,7 @@ size = Vector3(8, 30, 8)
 
 [node name="ThunderStorm" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 16.733)
+script = ExtResource("1_0uv10")
 
 [node name="CloudParticles" type="GPUParticles3D" parent="."]
 amount = 128
@@ -89,3 +92,11 @@ draw_pass_1 = SubResource("QuadMesh_dqxru")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_tp3cq")
+
+[node name="LightningSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.58123, 0)
+visible = false
+modulate = Color(1, 0.737255, 0.294118, 1)
+billboard = 2
+texture = ExtResource("2_1p26f")
+hframes = 3
