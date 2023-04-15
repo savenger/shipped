@@ -2,6 +2,8 @@ extends Node3D
 
 signal delivered()
 
+@export var _expected_delivery: float = 100
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,6 +21,6 @@ func _on_area_3d_area_entered(body):
 func _on_area_3d_body_entered(body):
 	if !body.is_in_group("ship"):
 		return
-	if !body.is_loaded:
+	if body.cargo_amount < _expected_delivery:
 		return
-	emit_signal("delivered")
+	delivered.emit()

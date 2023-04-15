@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Utils="*res://Utils.gd"
 CameraManager="*res://addons/DynamicCameraSystem/CameraManager.gd"
 
 [editor_plugins]

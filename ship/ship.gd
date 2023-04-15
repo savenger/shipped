@@ -8,10 +8,13 @@ var brake : float = 0.5
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
 
+@export_category("Cargo")
 # Whether the ship has cargo or not ...
-var is_loaded: bool = false
+var cargo_amount: float = 0
+@export var cargo_capacity = 100
+@export var destination: Node
 
-
+@export_category("Buoyancy")
 @export var float_force := 1.0
 @export var water_drag := 0.05
 @export var water_angular_drag := 0.05
@@ -24,9 +27,10 @@ var is_loaded: bool = false
 var submerged := false
 
 func _ready() -> void:
+	destination.delivered.connect(_on_delivered)
 	var cargo_ports = get_tree().get_nodes_in_group("cargo_port")
 	for port in cargo_ports:
-		port.ship_loaded.connect(_on_ship_loaded)
+		port.ship_loading.connect(_on_ship_loading)
 
 func _physics_process(_delta):
 	submerged = false
@@ -55,5 +59,16 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	state.apply_torque(rotation_direction * torque)
 	state.apply_force(($front.global_position - global_position) * 100 * acc)
 
-func _on_ship_loaded(_cargo_port: CargoPort):
-	is_loaded = true
+
+func _on_ship_loading(_cargo_port: CargoPort, progress: float):
+	if cargo_amount >= cargo_capacity:
+		print("Ship at max capcity")
+	else:
+		# Loading ship
+		cargo_amount += progress
+		print(cargo_amount)
+
+func _on_delivered():
+	# Reset cargo amount
+	cargo_amount = 0
+	print("Reset cargo amount")

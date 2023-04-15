@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nicr827hhvr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3coqf"]
+size = Vector3(1, 0.6, 0.5)
+
+[node name="CargoContainer" type="MeshInstance3D"]
+visible = false
+mesh = SubResource("BoxMesh_3coqf")
