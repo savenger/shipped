@@ -83,6 +83,7 @@ script = ExtResource("1_rwlqv")
 
 [node name="Water" type="MeshInstance3D" parent="terrain"]
 transform = Transform3D(128, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_nub8u")
 script = ExtResource("3_wo30p")
 
@@ -96,6 +97,9 @@ material = ExtResource("5_ko8cj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 operation = 2
 size = Vector3(250, 4, 250)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="terrain/base"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -20, 0, -20)
 
 [node name="rendering" type="Node" parent="."]
 

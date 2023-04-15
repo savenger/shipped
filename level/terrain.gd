@@ -5,13 +5,15 @@ var greent_material = preload("res://assets/green.tres")
 
 var islands : Array = []
 
-var mapSize : int = 8
-var chunkSize : int = 8
+var mapSize : int = 16
+var chunkSize : int = 16
 var rng := RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.seed = Time.get_ticks_msec()
 	rng.randomize()
+	_generateBridgeArea()
 	_generateIslands()
 	pass
 
@@ -19,21 +21,83 @@ func _ready():
 func _process(_delta):
 	pass
 
+func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_factor2: float):
+	var c = CSGBox3D.new()
+	var scale : float= 1 - (scale_factor + scale_factor2) / 2
+	var pen_size_1 = scale_factor * (mapSize * chunkSize) / 2
+	var pen_size_2 = scale_factor2 * (mapSize * chunkSize) / 2
+	var pen_gap = (mapSize * chunkSize) - pen_size_1 - pen_size_2
+	if horizontal:
+		c.position.x = x
+		c.position.z = pen_size_1 - (mapSize * chunkSize) / 2 + pen_gap / 2
+		c.scale.z = scale * mapSize * chunkSize
+	else:
+		c.position.x = pen_size_1 - (mapSize * chunkSize) / 2 + pen_gap / 2
+		c.position.z = z
+		c.scale.x = scale * mapSize * chunkSize
+	c.position.y = 4
+	$base.add_child(c)
+
+func _placeLand(c: CSGShape3D):
+	c.use_collision = true
+	c.operation = CSGShape3D.OPERATION_UNION
+	c.material = greent_material
+	$base.add_child(c)
+
+func _placeIsland(x: int, z: int):
+	var c = CSGCylinder3D.new()
+	c.position.x = x * chunkSize - (mapSize * chunkSize) / 2
+	c.position.z = z * chunkSize - (mapSize * chunkSize) / 2
+	c.scale.x = rng.randf_range(10.0,15.0)
+	c.scale.z = rng.randf_range(10.0,15.0)
+	c.scale.y = 3.0
+	_placeLand(c)
+	islands.append({'x': c.position.x, 'z': c.position.z})
+
+func _generateBridgeArea():
+	var horizontal : bool = (rng.randf() > 0.5)
+	horizontal = false
+	var bridge_pos : int = rng.randi_range(2, mapSize - 3)
+	var bridge_pos2 : int = rng.randi_range(0,1)
+	var scale_factor = rng.randf_range(0.8, 0.95)
+	var scale_factor2 = rng.randf_range(0.8, 0.95)
+	var c = CSGBox3D.new()
+	var c2 = CSGBox3D.new()
+	if horizontal:
+		
+		c.scale.x = rng.randf_range(10.0,15.0)
+		c.scale.z = (chunkSize * mapSize * scale_factor) / 2
+		c.scale.y = 6.0
+		c.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		c.position.z = -(mapSize * chunkSize) / 2 + (c.scale.z) / 2
+		_placeLand(c)
+		c2.scale.x = rng.randf_range(10.0,15.0)
+		c2.scale.z = (chunkSize * mapSize * scale_factor2) / 2
+		c2.scale.y = 6.0
+		c2.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		c2.position.z = (mapSize * chunkSize) / 2 - (c2.scale.z) / 2
+		_placeLand(c2)
+	else:
+		c.scale.x = (chunkSize * mapSize * scale_factor) / 2
+		c.scale.z = rng.randf_range(10.0,15.0)
+		c.scale.y = 6.0
+		c.position.x = -(mapSize * chunkSize) / 2 + (c.scale.x) / 2
+		c.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		_placeLand(c)
+		c2.scale.x = (chunkSize * mapSize * scale_factor2) / 2
+		c2.scale.z = rng.randf_range(10.0,15.0)
+		c2.scale.y = 6.0
+		c2.position.x = (mapSize * chunkSize) / 2 - (c2.scale.x) / 2
+		c2.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		_placeLand(c2)
+	_placeBridge(horizontal, c.position.x, c.position.z, scale_factor, scale_factor2)
+
 func _generateIslands():
 	for x in range(mapSize):
 		for z in range(mapSize):
-			if rng.randf() > 0.9:
-				var c = CSGCylinder3D.new()
-				c.position.x = x * chunkSize - (mapSize * chunkSize) / 2
-				c.position.z = z * chunkSize - (mapSize * chunkSize) / 2
-				c.use_collision = true
-				c.operation = CSGShape3D.OPERATION_UNION
-				c.scale.y = 3.0
-				c.scale.x = rng.randf_range(10.0,15.0)
-				c.scale.z = rng.randf_range(10.0,15.0)
-				c.material = greent_material
-				$base.add_child(c)
-				islands.append({'x': c.position.x, 'z': c.position.z})
+			if rng.randf() > 0.95:
+				_placeIsland(x, z)
+				
 
 func _generateGround():
 	var noise = FastNoiseLite.new()
