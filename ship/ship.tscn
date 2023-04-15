@@ -9,7 +9,7 @@ size = Vector3(10, 1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_n8xi3"]
 size = Vector3(10, 3, 5)
 
-[node name="Ship" type="RigidBody3D"]
+[node name="Ship" type="RigidBody3D" groups=["ship"]]
 mass = 10.0
 script = ExtResource("1_h3pvo")
 float_force = 1.3
