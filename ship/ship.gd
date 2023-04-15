@@ -3,12 +3,14 @@ extends RigidBody3D
 signal die()
 
 const MAX_HEALTH : int = 100
+const MAX_THRUST: float = 1.5
+const MAX_BRAKE: float = 0.5
 var health : int = MAX_HEALTH
 var acc : float = 0.0
 var rot : Vector3 = Vector3(0, 0, 0)
 var rot_speed : int = 4
-var thrust : float = 1.5
-var brake : float = 0.5
+var thrust : float = MAX_THRUST
+var brake : float = MAX_BRAKE
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
 var delivered : int = 0
@@ -93,5 +95,9 @@ func _on_body_entered(_body):
 	print(health)
 	$SpotLightAlert.visible = (health < 50.0)
 	$SpotLightAlert2.visible = (health < 50.0)
+	if health < 50.0:
+		if thrust == MAX_THRUST:
+			thrust = MAX_THRUST / 2.0
+			brake = MAX_BRAKE / 2.0
 	if health <= 0.0:
 		emit_signal("die", delivered)
