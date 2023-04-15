@@ -23,3 +23,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s5va1")
 
 [node name="Pillar" parent="." index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_1xjgm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69356e-06, 12.6615, -30.8108)

@@ -78,7 +78,8 @@ subdivide_width = 20
 subdivide_depth = 20
 
 [sub_resource type="Environment" id="Environment_m4ws3"]
-ambient_light_color = Color(0.423529, 0.423529, 0.423529, 1)
+background_mode = 1
+ambient_light_source = 2
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_t8u4u")
@@ -140,9 +141,11 @@ speed_rotation = 4.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="rendering"]
 transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 1.32951, 0)
+visible = false
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="rendering"]
-environment = SubResource("Environment_m4ws3")
+[node name="OmniLight3D" type="OmniLight3D" parent="rendering"]
+light_energy = 10.882
+omni_range = 246.754
 
 [node name="ship" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("3_p70qk")]
 transform = Transform3D(0.990517, 0, 0.137393, 0, 1, 0, -0.137393, 0, 0.990517, 19.7137, -0.290461, 53.6842)
@@ -161,3 +164,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 8, 0)
 
 [node name="ThunderStorm" parent="." instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6935, 15, 16.733)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m4ws3")

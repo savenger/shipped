@@ -100,3 +100,8 @@ modulate = Color(1, 0.737255, 0.294118, 1)
 billboard = 2
 texture = ExtResource("2_1p26f")
 hframes = 3
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.93732, 0)
+light_energy = 6.961
+light_size = 0.479

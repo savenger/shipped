@@ -15,5 +15,7 @@ func _process(delta):
 		var frame_index = randi_range(0, $LightningSprite.hframes - 1)
 		$LightningSprite.frame = frame_index
 		$LightningSprite.visible = true
+		$OmniLight3D.visible = true
 		await get_tree().create_timer(.2).timeout
 		$LightningSprite.visible = false
+		$OmniLight3D.visible = false
