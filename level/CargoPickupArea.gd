@@ -28,7 +28,7 @@ func _process(delta):
 	if _timer >= _parent.duration:
 		# Finished loading
 		_loading_state = LOADED_SHIP
-		_parent.ship_loaded.emit()
+		_parent.ship_loaded.emit(_parent)
 		print("Ship Loaded!")
 
 

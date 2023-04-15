@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" path="res://level/destination.gd" id="1_w0csv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ydf7p"]
-size = Vector3(5, 2, 5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4527"]
+size = Vector3(3, 10, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tegh"]
 albedo_color = Color(0.933333, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y1c8f"]
 material = SubResource("StandardMaterial3D_2tegh")
+size = Vector3(1, 10, 1)
 
 [node name="destination" type="Node3D"]
 script = ExtResource("1_w0csv")
@@ -17,7 +18,7 @@ script = ExtResource("1_w0csv")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_ydf7p")
+shape = SubResource("BoxShape3D_x4527")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_y1c8f")

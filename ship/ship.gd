@@ -8,14 +8,8 @@ var brake : float = 2.0
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+# Whether the ship has cargo or not ...
+var is_loaded: bool = false
 
 
 @export var float_force := 1.0
@@ -28,6 +22,11 @@ func _process(_delta):
 @onready var probes = $ProbeContainer.get_children()
 
 var submerged := false
+
+func _ready() -> void:
+	var cargo_ports = get_tree().get_nodes_in_group("cargo_port")
+	for port in cargo_ports:
+		port.ship_loaded.connect(_on_ship_loaded)
 
 func _physics_process(_delta):
 	submerged = false
@@ -55,3 +54,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		pass
 	state.apply_torque(rotation_direction * torque)
 	state.apply_force(($front.global_position - global_position) * 100 * acc)
+
+func _on_ship_loaded(_cargo_port: CargoPort):
+	is_loaded = true

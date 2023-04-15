@@ -11,6 +11,14 @@ func _ready():
 func _process(_delta):
 	pass
 
+
+func _on_area_3d_area_entered(body):
+	pass
+
+
 func _on_area_3d_body_entered(body):
-	if body.name == "ship":
-		emit_signal("delivered")
+	if !body.is_in_group("ship"):
+		return
+	if !body.is_loaded:
+		return
+	emit_signal("delivered")

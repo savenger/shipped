@@ -10,9 +10,9 @@ size = Vector3(5, 20, 5)
 size = Vector3(5, 20, 5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ngl4c"]
-radius = 7.0
+radius = 10.0
 
-[node name="CargoPort" type="StaticBody3D"]
+[node name="CargoPort" type="StaticBody3D" groups=["cargo_port"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5461, -8.27964, 0)
 script = ExtResource("1_gwy4d")
 
