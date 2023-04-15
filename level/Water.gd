@@ -11,6 +11,9 @@ var time: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+func _old_ready():
 	material = mesh.surface_get_material(0)
 	noise = material.get_shader_parameter("wave").noise.get_seamless_image(256, 256)
 	noise_scale = material.get_shader_parameter("noise_scale")
@@ -19,9 +22,13 @@ func _ready():
 
 func _process(delta):
 	time += delta
+
+func _old_process(delta):
+	time += delta
 	material.set_shader_parameter("wave_time", time)
 
 func get_height(world_position: Vector3) -> float:
+	return global_position.y * height_scale
 	var uv_x = wrapf(world_position.x / noise_scale + time * wave_speed, 0, 1)
 	var uv_y = wrapf(world_position.z / noise_scale + time * wave_speed, 0, 1)
 
