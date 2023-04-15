@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dioyfdulmrmxj"]
+[gd_scene load_steps=15 format=3 uid="uid://dioyfdulmrmxj"]
 
 [ext_resource type="Script" path="res://level/HUD.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://pcamcrsxgc5s" path="res://assets/key_minus.png" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dntrtfrust4ln" path="res://assets/key_d.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://b3xd5ji18x5ew" path="res://assets/key_space.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://tk8f44ursm86" path="res://assets/btn_l.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://mf6vpguv0210" path="res://assets/key_c.png" id="9_ptmrs"]
 [ext_resource type="Texture2D" uid="uid://cqjf8k8tsyqtp" path="res://assets/btn_shoot.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://dqpox5c70f03a" path="res://assets/stick_r.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://3voaeqtpcskc" path="res://assets/btn_r.png" id="12"]
@@ -114,6 +115,21 @@ offset_right = 626.0
 offset_bottom = 220.0
 pivot_offset = Vector2(10, 10)
 texture = ExtResource("2")
+
+[node name="C" type="TextureRect" parent="Keys"]
+offset_left = 832.0
+offset_top = 196.0
+offset_right = 852.0
+offset_bottom = 216.0
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("9_ptmrs")
+
+[node name="Label7" type="Label" parent="Keys"]
+offset_left = 864.0
+offset_top = 209.0
+offset_right = 1000.0
+offset_bottom = 235.0
+text = "Change Camera"
 
 [node name="Buttons" type="Node" parent="."]
 
