@@ -3,8 +3,8 @@ extends RigidBody3D
 var acc : float = 0.0
 var rot : Vector3 = Vector3(0, 0, 0)
 var rot_speed : int = 4
-var thrust : float = 3.0
-var brake : float = 2.0
+var thrust : float = 1.5
+var brake : float = 0.5
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
 
