@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CameraManager="*res://addons/DynamicCameraSystem/CameraManager.gd"
 Utils="*res://Utils.gd"
+Globals="*res://level/globals.gd"
 
 [editor_plugins]
 
@@ -45,6 +46,14 @@ CounterThrust={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"echo":false,"script":null)
 ]
+}
+volume_up={
+"deadzone": 0.5,
+"events": []
+}
+volume_down={
+"deadzone": 0.5,
+"events": []
 }
 
 [rendering]

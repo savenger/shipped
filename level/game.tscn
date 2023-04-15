@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddqpjbaduw5w0"]
+[gd_scene load_steps=24 format=3 uid="uid://ddqpjbaduw5w0"]
 
 [ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
 [ext_resource type="Script" path="res://level/game.gd" id="1_t8u4u"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://addons/DynamicCameraSystem/CameraViewpoint.gd" id="7_4x65g"]
 [ext_resource type="PackedScene" uid="uid://cllk52ttqkq0p" path="res://level/cargo_port.tscn" id="9_wjkbu"]
 [ext_resource type="PackedScene" uid="uid://dkng47bn1uykv" path="res://Models/Bridge/bridge_begin.tscn" id="11_dyecb"]
+[ext_resource type="PackedScene" uid="uid://bkew66bfpvxfn" path="res://level/HUD.tscn" id="11_hg3qo"]
 [ext_resource type="PackedScene" uid="uid://bgfbbk3stk57o" path="res://Models/Bridge/bridge_road.tscn" id="12_lojrj"]
 [ext_resource type="PackedScene" uid="uid://cmejtsul38hqv" path="res://Models/Bridge/ground_road.tscn" id="13_qsnl8"]
 
@@ -149,3 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29)
 
 [node name="GroundRoad" parent="Bridge" instance=ExtResource("13_qsnl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="HUD" parent="." instance=ExtResource("11_hg3qo")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkew66bfpvxfn"]
+
+[ext_resource type="Script" path="res://level/HUD.gd" id="1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Score" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_right = 0.505
+text = "0"
+scroll_active = false
+
+[node name="GameOver" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 0.505
+text = "Game Over
+- press 'shoot' to start over -"
+scroll_active = false
+
+[node name="StartOver" type="RichTextLabel" parent="."]
+visible = false
+text = " - press 'shoot' to restart"
+scroll_active = false
+
+[node name="TimerShowGameOver" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerShowGameOver" to="." method="_on_TimerShowGameOver_timeout"]
