@@ -1,0 +1,12 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://dqdos3ghwiyg1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku8oq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 2
+billboard_keep_scale = true
+
+[resource]
+material = SubResource("StandardMaterial3D_ku8oq")
+size = Vector2(0.05, 1)

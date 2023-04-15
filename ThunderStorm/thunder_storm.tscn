@@ -1,66 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://lkfy15244dxg"]
+[gd_scene load_steps=8 format=3 uid="uid://lkfy15244dxg"]
 
 [ext_resource type="Script" path="res://ThunderStorm/ThunderStorm.gd" id="1_0uv10"]
 [ext_resource type="Texture2D" uid="uid://blsj8j1cge4od" path="res://ThunderStorm/LightningTexture.png" id="2_1p26f"]
 [ext_resource type="QuadMesh" uid="uid://cesv6k7syl4ai" path="res://Materials/Smoke.tres" id="2_p4ilb"]
+[ext_resource type="QuadMesh" uid="uid://dqdos3ghwiyg1" path="res://ThunderStorm/RainMesh.tres" id="3_r86rw"]
 
 [sub_resource type="Gradient" id="Gradient_i36v3"]
 offsets = PackedFloat32Array(0, 0.213287, 0.702797, 1)
 colors = PackedColorArray(0.580392, 0.580392, 0.580392, 0, 0.408329, 0.40833, 0.408329, 1, 0.589095, 0.589096, 0.589095, 1, 0.544974, 0.544974, 0.544974, 0)
 
-[sub_resource type="Gradient" id="Gradient_f7bs4"]
-offsets = PackedFloat32Array(0, 0.222628, 0.463504, 0.715328, 1)
-colors = PackedColorArray(0.393086, 0.393086, 0.393085, 0, 0.590651, 0.640392, 0.768928, 1, 0.682465, 0.723971, 0.829918, 1, 0.551133, 0.603309, 0.738944, 1, 0.233038, 0.270984, 0.373887, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nysud"]
-gradient = SubResource("Gradient_f7bs4")
-
-[sub_resource type="Curve" id="Curve_2qu0o"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_n1h6s"]
-curve = SubResource("Curve_2qu0o")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvpmx"]
-resource_local_to_scene = true
-emission_shape = 3
-emission_box_extents = Vector3(10, 1, 10)
-gravity = Vector3(0, 0, 0)
-angular_velocity_min = -50.0
-angular_velocity_max = 50.0
-scale_min = 8.0
-scale_max = 12.0
-scale_curve = SubResource("CurveTexture_n1h6s")
-color_ramp = SubResource("GradientTexture1D_nysud")
-
-[sub_resource type="Gradient" id="Gradient_6xcks"]
-offsets = PackedFloat32Array(0, 0.233577, 0.813869, 1)
-colors = PackedColorArray(1, 1, 1, 0, 3.85046e-06, 0.726573, 0.910158, 1, 0.204147, 0.818295, 0.975515, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jh0ik"]
-gradient = SubResource("Gradient_6xcks")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wbji"]
-emission_shape = 3
-emission_box_extents = Vector3(10, 0.1, 10)
-direction = Vector3(0, -1, 0)
-spread = 0.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 15.0
-initial_velocity_max = 15.0
-color_ramp = SubResource("GradientTexture1D_jh0ik")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku8oq"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-billboard_mode = 2
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_dqxru"]
-material = SubResource("StandardMaterial3D_ku8oq")
-size = Vector2(0.05, 1)
+[sub_resource type="Gradient" id="Gradient_1kry6"]
+offsets = PackedFloat32Array(0, 0.174825, 0.828671, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tp3cq"]
 size = Vector3(8, 30, 8)
@@ -69,7 +20,7 @@ size = Vector3(8, 30, 8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 16.733)
 script = ExtResource("1_0uv10")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="Clouds" type="CPUParticles3D" parent="."]
 amount = 32
 lifetime = 5.0
 mesh = ExtResource("2_p4ilb")
@@ -82,18 +33,18 @@ scale_amount_min = 8.0
 scale_amount_max = 12.0
 color_ramp = SubResource("Gradient_i36v3")
 
-[node name="CloudParticles" type="GPUParticles3D" parent="."]
-visible = false
-amount = 128
-lifetime = 5.0
-process_material = SubResource("ParticleProcessMaterial_pvpmx")
-draw_pass_1 = ExtResource("2_p4ilb")
-
-[node name="RainParticles" type="GPUParticles3D" parent="."]
-amount = 64
-visibility_aabb = AABB(-11.5657, -27.514, -11.9377, 23.1315, 55.028, 23.8753)
-process_material = SubResource("ParticleProcessMaterial_1wbji")
-draw_pass_1 = SubResource("QuadMesh_dqxru")
+[node name="Rain" type="CPUParticles3D" parent="."]
+amount = 32
+mesh = ExtResource("3_r86rw")
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 10)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+color = Color(0.152941, 1, 1, 1)
+color_ramp = SubResource("Gradient_1kry6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_tp3cq")
@@ -101,6 +52,7 @@ shape = SubResource("BoxShape3D_tp3cq")
 [node name="LightningSprite" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.58123, 0)
 visible = false
+cast_shadow = 0
 modulate = Color(1, 0.737255, 0.294118, 1)
 billboard = 2
 texture = ExtResource("2_1p26f")
