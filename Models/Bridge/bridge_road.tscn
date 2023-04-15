@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgfbbk3stk57o"]
+
+[ext_resource type="PackedScene" uid="uid://byyw5h2klhmv8" path="res://Models/Bridge/BridgeRoad.glb" id="1_1yn8u"]
+
+[node name="BridgeRoad" instance=ExtResource("1_1yn8u")]

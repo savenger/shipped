@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkng47bn1uykv"]
+
+[ext_resource type="PackedScene" uid="uid://g2r5dyoquiro" path="res://Models/Bridge/BridgeBegin.glb" id="1_g5msl"]
+[ext_resource type="Texture2D" uid="uid://by4ha1fifgrxf" path="res://Models/Bridge/BridgeTexture.png" id="2_td0la"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i42eh"]
+albedo_texture = ExtResource("2_td0la")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5va1"]
+albedo_texture = ExtResource("2_td0la")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xjgm"]
+albedo_texture = ExtResource("2_td0la")
+
+[node name="BridgeBegin" instance=ExtResource("1_g5msl")]
+
+[node name="Ramp1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i42eh")
+
+[node name="Ramp2" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_s5va1")
+
+[node name="Pillar" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1xjgm")
