@@ -85,7 +85,7 @@ script = ExtResource("3_wo30p")
 [node name="rendering" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="rendering"]
-transform = Transform3D(0.994858, 0.0457289, 0.0903709, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 24.4581, 14.2385)
+transform = Transform3D(0.994858, 0.0457289, 0.0903709, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 10.9664, 14.2385)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="rendering"]
 transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 1.32951, 0)
