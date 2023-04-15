@@ -105,6 +105,7 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -20, 0, -20)
 
 [node name="Camera3D" type="Camera3D" parent="rendering"]
 transform = Transform3D(0.994858, 0.0457289, 0.0903709, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 10.9664, 14.2385)
+current = true
 
 [node name="CameraToggle" type="Node" parent="rendering"]
 script = ExtResource("5_cy2qf")
