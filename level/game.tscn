@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddqpjbaduw5w0"]
+[gd_scene load_steps=16 format=3 uid="uid://ddqpjbaduw5w0"]
 
 [ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
+[ext_resource type="Script" path="res://level/game.gd" id="1_t8u4u"]
 [ext_resource type="Shader" path="res://level/water.gdshader" id="3_k1ggt"]
 [ext_resource type="PackedScene" uid="uid://dx5ef6x3ra2g" path="res://ship/ship.tscn" id="3_p70qk"]
 [ext_resource type="Script" path="res://level/Water.gd" id="3_wo30p"]
+[ext_resource type="PackedScene" uid="uid://dcstorccunohr" path="res://level/destination.tscn" id="5_b312y"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5voth"]
 fractal_type = 2
@@ -70,6 +72,7 @@ subdivide_depth = 20
 ambient_light_color = Color(0.980392, 0.980392, 0.980392, 1)
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_t8u4u")
 
 [node name="terrain" type="Node" parent="."]
 script = ExtResource("1_rwlqv")
@@ -82,7 +85,7 @@ script = ExtResource("3_wo30p")
 [node name="rendering" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="rendering"]
-transform = Transform3D(0.994858, 0.0457289, 0.090371, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 17.4581, 14.2385)
+transform = Transform3D(0.994858, 0.0457289, 0.0903709, -0.0986901, 0.63825, 0.763477, -0.0227663, -0.76847, 0.639481, -9.53674e-07, 24.4581, 14.2385)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="rendering"]
 transform = Transform3D(0.965926, -0.0669873, -0.25, 0.258819, 0.25, 0.933013, 0, -0.965926, 0.258819, 0, 1.32951, 0)
@@ -92,3 +95,5 @@ environment = SubResource("Environment_m4ws3")
 
 [node name="ship" parent="." instance=ExtResource("3_p70qk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.434, 3, 2.453)
+
+[node name="destination" parent="." instance=ExtResource("5_b312y")]

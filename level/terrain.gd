@@ -10,7 +10,6 @@ func _ready():
 	#_generateGround()
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -35,7 +34,7 @@ func _generateGround():
 	
 	for i in range(data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		vertex.y = noise.get_noise_3d(vertex.x, vertex.y, vertex.z) * 20
+		vertex.y = noise.get_noise_3d(vertex.x, vertex.y, vertex.z) * 50
 		data_tool.set_vertex(i, vertex)
 	
 	array_plane.clear_surfaces()
