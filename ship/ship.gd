@@ -1,5 +1,9 @@
 extends RigidBody3D
 
+signal die()
+
+const MAX_HEALTH : int = 100
+var health : int = MAX_HEALTH
 var acc : float = 0.0
 var rot : Vector3 = Vector3(0, 0, 0)
 var rot_speed : int = 4
@@ -7,6 +11,7 @@ var thrust : float = 1.5
 var brake : float = 0.5
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
+var delivered : int = 0
 
 @export_category("Cargo")
 # Whether the ship has cargo or not ...
@@ -71,8 +76,13 @@ func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 func _on_delivered():
 	# Reset cargo amount
 	cargo_amount = 0
+	delivered += 1
 	print("Reset cargo amount")
 
 
 func _on_body_entered(body):
-	print(body)
+	if linear_velocity.length() > 3:
+		health -= int(linear_velocity.length())
+	print(health)
+	if health <= 0.0:
+		emit_signal("die", delivered)
