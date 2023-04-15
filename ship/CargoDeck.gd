@@ -1,8 +1,6 @@
 extends Node3D
 
 @export var _containers: Array[PackedScene]
-@export var _spacing: Vector3 = Vector3(1.5, 0, 0.70)
-@export var _offset: Vector3 = Vector3(0, 0, 1.4)
 
 @onready var _ship = get_parent()
 
@@ -15,7 +13,6 @@ func _ready():
 func _process(_delta):
 	for child in get_children():
 		var container_index_percentage = Utils.remap_range(float(child.get_index()), 0, _container_total, 0, 100)
-#		print (_ship.cargo_amount, " --- ", container_index_percentage )
 		child.visible = _ship.cargo_amount > container_index_percentage 
 
 

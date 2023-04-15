@@ -14,7 +14,7 @@ func _process(_delta):
 	pass
 
 
-func _on_area_3d_area_entered(body):
+func _on_area_3d_area_entered(_body):
 	pass
 
 

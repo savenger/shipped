@@ -10,6 +10,7 @@ albedo_color = Color(0.933333, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_y1c8f"]
 material = SubResource("StandardMaterial3D_2tegh")
+size = Vector3(1, 10, 1)
 
 [node name="destination" type="Node3D"]
 script = ExtResource("1_w0csv")
