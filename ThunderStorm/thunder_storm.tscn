@@ -20,12 +20,12 @@ curve = SubResource("Curve_2qu0o")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvpmx"]
 emission_shape = 3
-emission_box_extents = Vector3(4, 1, 4)
+emission_box_extents = Vector3(10, 1, 10)
 gravity = Vector3(0, 0, 0)
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
-scale_min = 3.0
-scale_max = 5.0
+scale_min = 8.0
+scale_max = 12.0
 scale_curve = SubResource("CurveTexture_n1h6s")
 color_ramp = SubResource("GradientTexture1D_nysud")
 
@@ -52,7 +52,7 @@ gradient = SubResource("Gradient_6xcks")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wbji"]
 emission_shape = 3
-emission_box_extents = Vector3(4, 0.1, 4)
+emission_box_extents = Vector3(10, 0.1, 10)
 direction = Vector3(0, -1, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
@@ -85,8 +85,8 @@ process_material = SubResource("ParticleProcessMaterial_pvpmx")
 draw_pass_1 = SubResource("QuadMesh_p5h7q")
 
 [node name="RainParticles" type="GPUParticles3D" parent="."]
-amount = 32
-visibility_aabb = AABB(-4, -27.514, -4, 8, 55.028, 8)
+amount = 64
+visibility_aabb = AABB(-11.5657, -27.514, -11.9377, 23.1315, 55.028, 23.8753)
 process_material = SubResource("ParticleProcessMaterial_1wbji")
 draw_pass_1 = SubResource("QuadMesh_dqxru")
 

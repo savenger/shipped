@@ -37,7 +37,7 @@ func _ready() -> void:
 	for port in cargo_ports:
 		port.ship_loading.connect(_on_ship_loading)
 
-func _process(delta):
+func _process(_delta):
 	if health <= 0.0:
 		emit_signal("die", delivered)
 		print("DIE")
