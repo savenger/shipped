@@ -3,6 +3,8 @@ extends Node
 const COL_LAYER_MAP : int = 1
 var greent_material = preload("res://assets/green.tres")
 
+var islands : Array = []
+
 var mapSize : int = 8
 var chunkSize : int = 8
 var rng := RandomNumberGenerator.new()
@@ -31,6 +33,7 @@ func _generateIslands():
 				c.scale.z = rng.randf_range(10.0,15.0)
 				c.material = greent_material
 				$base.add_child(c)
+				islands.append({'x': c.position.x, 'z': c.position.z})
 
 func _generateGround():
 	var noise = FastNoiseLite.new()
