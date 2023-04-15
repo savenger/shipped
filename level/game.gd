@@ -36,8 +36,8 @@ func _on_delivered():
 	print("delivered some goods")
 	$destination.position = get_random_destination_position()
 
-func adjust_volume(base_volume):
-	get_parent().get_node("AudioStreamPlayer").volume_db = music_volume + base_volume
+func adjust_volume(vol):
+	get_parent().get_node("AudioStreamPlayer").volume_db = music_volume + vol
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

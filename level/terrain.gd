@@ -29,23 +29,23 @@ func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_f
 	if horizontal:
 		$BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
 		$BridgeBegin.position.x = x
-		$BridgeBegin.position.z = -(mapSize * chunkSize) / 2 + pen_size_1 - ramp_size
+		$BridgeBegin.position.z = int(-(mapSize * chunkSize) / 2.0) + pen_size_1 - ramp_size
 		$BridgeRoad.rotate(Vector3.UP, 3 * PI / 2)
 		$BridgeRoad.position.x = x
-		$BridgeRoad.position.z = $BridgeBegin.position.z + ramp_size + pen_gap / 2
-		$BridgeRoad.scale.z = pen_gap * 26 / (mapSize * chunkSize)
+		$BridgeRoad.position.z = $BridgeBegin.position.z + ramp_size + int(pen_gap / 2.0)
+		$BridgeRoad.scale.z = int(pen_gap * 26 / (mapSize * chunkSize))
 		$BridgeEnd.rotate(Vector3.UP, PI / 2)
 		$BridgeEnd.position.x = x
-		$BridgeEnd.position.z = $BridgeRoad.position.z + pen_gap / 2 + ramp_size
+		$BridgeEnd.position.z = $BridgeRoad.position.z + int(pen_gap / 2.0) + ramp_size
 		print($BridgeRoad.position.z)
 	else:
-		$BridgeBegin.position.x = -(mapSize * chunkSize) / 2 + pen_size_1 - ramp_size
+		$BridgeBegin.position.x = int(-(mapSize * chunkSize) / 2.0) + pen_size_1 - ramp_size
 		$BridgeBegin.position.z = z
-		$BridgeRoad.position.x = $BridgeBegin.position.x + ramp_size + pen_gap / 2
+		$BridgeRoad.position.x = $BridgeBegin.position.x + ramp_size + int(pen_gap / 2)
 		$BridgeRoad.position.z = z
 		$BridgeRoad.scale.z = pen_gap * 26 / (mapSize * chunkSize)
 		$BridgeEnd.rotate(Vector3.UP, 2 * PI / 2)
-		$BridgeEnd.position.x = $BridgeRoad.position.x + pen_gap / 2 + ramp_size
+		$BridgeEnd.position.x = $BridgeRoad.position.x + int(pen_gap / 2.0) + ramp_size
 		$BridgeEnd.position.z = z
 
 func _placeLand(c: CSGShape3D):
@@ -56,8 +56,8 @@ func _placeLand(c: CSGShape3D):
 
 func _placeIsland(x: int, z: int):
 	var c = CSGCylinder3D.new()
-	c.position.x = x * chunkSize - (mapSize * chunkSize) / 2
-	c.position.z = z * chunkSize - (mapSize * chunkSize) / 2
+	c.position.x = x * chunkSize - (mapSize * chunkSize) / 2.0
+	c.position.z = z * chunkSize - (mapSize * chunkSize) / 2.0
 	c.scale.x = rng.randf_range(10.0,15.0)
 	c.scale.z = rng.randf_range(10.0,15.0)
 	c.scale.y = 6.0
@@ -68,7 +68,6 @@ func _generateBridgeArea():
 	var horizontal : bool = (rng.randf() > 0.5)
 	horizontal = true
 	var bridge_pos : int = rng.randi_range(2, mapSize - 3)
-	var bridge_pos2 : int = rng.randi_range(0,1)
 	var scale_factor = rng.randf_range(0.8, 0.95)
 	var scale_factor2 = rng.randf_range(0.8, 0.95)
 	var c = CSGBox3D.new()
@@ -77,27 +76,27 @@ func _generateBridgeArea():
 		c.scale.x = rng.randf_range(10.0,15.0)
 		c.scale.z = (chunkSize * mapSize * scale_factor) / 2
 		c.scale.y = 12.0
-		c.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
-		c.position.z = -(mapSize * chunkSize) / 2 + (c.scale.z) / 2
+		c.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2.0
+		c.position.z = -(mapSize * chunkSize) / 2.0 + (c.scale.z) / 2.0
 		_placeLand(c)
 		c2.scale.x = rng.randf_range(10.0,15.0)
 		c2.scale.z = (chunkSize * mapSize * scale_factor2) / 2
 		c2.scale.y = 12.0
-		c2.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
-		c2.position.z = (mapSize * chunkSize) / 2 - (c2.scale.z) / 2
+		c2.position.x = bridge_pos * chunkSize - (mapSize * chunkSize) / 2.0
+		c2.position.z = (mapSize * chunkSize) / 2.0 - (c2.scale.z) / 2.0
 		_placeLand(c2)
 	else:
-		c.scale.x = (chunkSize * mapSize * scale_factor) / 2
+		c.scale.x = (chunkSize * mapSize * scale_factor) / 2.0
 		c.scale.z = rng.randf_range(10.0,15.0)
 		c.scale.y = 12.0
-		c.position.x = -(mapSize * chunkSize) / 2 + (c.scale.x) / 2
-		c.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		c.position.x = -(mapSize * chunkSize) / 2.0 + (c.scale.x) / 2.0
+		c.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2.0
 		_placeLand(c)
 		c2.scale.x = (chunkSize * mapSize * scale_factor2) / 2
 		c2.scale.z = rng.randf_range(10.0,15.0)
 		c2.scale.y = 12.0
-		c2.position.x = (mapSize * chunkSize) / 2 - (c2.scale.x) / 2
-		c2.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2
+		c2.position.x = (mapSize * chunkSize) / 2.0 - (c2.scale.x) / 2.0
+		c2.position.z = bridge_pos * chunkSize - (mapSize * chunkSize) / 2.0
 		_placeLand(c2)
 	_placeBridge(horizontal, c.position.x, c.position.z, scale_factor, scale_factor2)
 
