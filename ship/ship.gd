@@ -82,7 +82,7 @@ func _on_delivered():
 	print("Reset cargo amount")
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
 		health -= int(linear_velocity.length())
 	print(health)
