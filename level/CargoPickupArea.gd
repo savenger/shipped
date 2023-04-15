@@ -22,7 +22,7 @@ func _process(delta):
 
 	# Loading ship
 	_timer += delta
-	var load_percentage = remap_range(_timer, 0, 10, 0, 100)
+	var load_percentage = remap_range(_timer, 0, _parent.duration, 0, 100)
 	print("Loading ship: %s" % round(load_percentage))
 		
 	if _timer >= _parent.duration:
