@@ -91,5 +91,7 @@ func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
 		health -= int(linear_velocity.length())
 	print(health)
-
-
+	$SpotLightAlert.visible = (health < 50.0)
+	$SpotLightAlert2.visible = (health < 50.0)
+	if health <= 0.0:
+		emit_signal("die", delivered)

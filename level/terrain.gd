@@ -15,9 +15,13 @@ func _ready():
 	rng.randomize()
 	_generateBridgeArea()
 	_generateIslands()
+	_generateBuoys()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	pass
+
+func _generateBuoys():
 	pass
 
 func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_factor2: float):
