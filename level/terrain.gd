@@ -7,7 +7,7 @@ var chunkSize : int = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#_generateGround()
+	_generateGround()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,6 +48,7 @@ func _generateGround():
 	surface_tool.generate_normals()
 	
 	var mesh_instance = MeshInstance3D.new()
+	mesh_instance.position.y = -20
 	mesh_instance.mesh = surface_tool.commit()
 	#var material = load("res://Shaders/Terrain.gdshader")
 	var material = StandardMaterial3D.new()
