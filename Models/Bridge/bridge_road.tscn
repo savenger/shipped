@@ -7,6 +7,7 @@
 albedo_texture = ExtResource("2_5j1wu")
 
 [node name="BridgeRoad" instance=ExtResource("1_1yn8u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="RoadBridge" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_fuwr5")

@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://addons/DynamicCameraSystem/CameraViewpoint.gd" id="7_4x65g"]
 [ext_resource type="PackedScene" uid="uid://cllk52ttqkq0p" path="res://level/cargo_port.tscn" id="9_wjkbu"]
 [ext_resource type="PackedScene" uid="uid://dkng47bn1uykv" path="res://Models/Bridge/bridge_begin.tscn" id="11_dyecb"]
-[ext_resource type="PackedScene" path="res://level/HUD.tscn" id="11_hg3qo"]
+[ext_resource type="PackedScene" uid="uid://bkew66bfpvxfn" path="res://level/HUD.tscn" id="11_hg3qo"]
 [ext_resource type="PackedScene" uid="uid://bgfbbk3stk57o" path="res://Models/Bridge/bridge_road.tscn" id="12_lojrj"]
 [ext_resource type="PackedScene" uid="uid://cmejtsul38hqv" path="res://Models/Bridge/ground_road.tscn" id="13_qsnl8"]
 [ext_resource type="PackedScene" uid="uid://lkfy15244dxg" path="res://ThunderStorm/thunder_storm.tscn" id="15_ii5b1"]
@@ -104,15 +104,17 @@ size = Vector3(250, 4, 250)
 
 [node name="Bridge" type="Node3D" parent="terrain"]
 
-[node name="BridgeBegin" parent="terrain/Bridge" instance=ExtResource("11_dyecb")]
+[node name="BridgeBegin" parent="terrain" instance=ExtResource("11_dyecb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -126, 0, 0)
 
-[node name="BridgeRoad" parent="terrain/Bridge" instance=ExtResource("12_lojrj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29)
+[node name="BridgeRoad" parent="terrain" instance=ExtResource("12_lojrj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -89.2762, 0, 0)
 
-[node name="GroundRoad" parent="terrain/Bridge" instance=ExtResource("13_qsnl8")]
+[node name="GroundRoad" parent="terrain" instance=ExtResource("13_qsnl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
-[node name="BridgeEnd" parent="terrain/Bridge" instance=ExtResource("11_dyecb")]
+[node name="BridgeEnd" parent="terrain" instance=ExtResource("11_dyecb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="rendering" type="Node" parent="."]
 

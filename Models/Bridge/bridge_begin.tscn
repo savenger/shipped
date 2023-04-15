@@ -13,6 +13,7 @@ albedo_texture = ExtResource("2_td0la")
 albedo_texture = ExtResource("2_td0la")
 
 [node name="BridgeBegin" instance=ExtResource("1_g5msl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Ramp1" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_i42eh")

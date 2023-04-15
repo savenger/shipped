@@ -25,24 +25,28 @@ func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_f
 	var pen_size_1 = scale_factor * (mapSize * chunkSize) / 2
 	var pen_size_2 = scale_factor2 * (mapSize * chunkSize) / 2
 	var pen_gap = (mapSize * chunkSize) - pen_size_1 - pen_size_2
-	var ramp_size = 3.2
-	horizontal = true
+	var ramp_size = 32
 	if horizontal:
-		$Bridge/BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
-		$Bridge/BridgeBegin.position.x = x
-		$Bridge/BridgeBegin.position.z = pen_size_1
-		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
-		$Bridge/BridgeEnd.position.x = x
-		$Bridge/BridgeEnd.position.z = (mapSize * chunkSize) - pen_size_1
-		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize - 2 * ramp_size
+		$BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
+		$BridgeBegin.position.x = x
+		$BridgeBegin.position.z = -(mapSize * chunkSize) / 2 + pen_size_1 - ramp_size
+		$BridgeRoad.rotate(Vector3.UP, 3 * PI / 2)
+		$BridgeRoad.position.x = x
+		$BridgeRoad.position.z = $BridgeBegin.position.z + ramp_size + pen_gap / 2
+		$BridgeRoad.scale.z = pen_gap * 26 / (mapSize * chunkSize)
+		$BridgeEnd.rotate(Vector3.UP, PI / 2)
+		$BridgeEnd.position.x = x
+		$BridgeEnd.position.z = $BridgeRoad.position.z + pen_gap / 2 + ramp_size
+		print($BridgeRoad.position.z)
 	else:
-		$Bridge/BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
-		$Bridge/BridgeBegin.position.x = pen_size_1
-		$Bridge/BridgeBegin.position.z = z
-		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
-		$Bridge/BridgeEnd.position.x = (mapSize * chunkSize) - pen_size_1
-		$Bridge/BridgeEnd.position.z = z
-		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize - 2 * ramp_size
+		$BridgeBegin.position.x = -(mapSize * chunkSize) / 2 + pen_size_1 - ramp_size
+		$BridgeBegin.position.z = z
+		$BridgeRoad.position.x = $BridgeBegin.position.x + ramp_size + pen_gap / 2
+		$BridgeRoad.position.z = z
+		$BridgeRoad.scale.z = pen_gap * 26 / (mapSize * chunkSize)
+		$BridgeEnd.rotate(Vector3.UP, 2 * PI / 2)
+		$BridgeEnd.position.x = $BridgeRoad.position.x + pen_gap / 2 + ramp_size
+		$BridgeEnd.position.z = z
 
 func _placeLand(c: CSGShape3D):
 	c.use_collision = true
@@ -62,7 +66,7 @@ func _placeIsland(x: int, z: int):
 
 func _generateBridgeArea():
 	var horizontal : bool = (rng.randf() > 0.5)
-	horizontal = false
+	horizontal = true
 	var bridge_pos : int = rng.randi_range(2, mapSize - 3)
 	var bridge_pos2 : int = rng.randi_range(0,1)
 	var scale_factor = rng.randf_range(0.8, 0.95)
