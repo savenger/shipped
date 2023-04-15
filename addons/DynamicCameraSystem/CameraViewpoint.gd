@@ -37,7 +37,7 @@ func _ready() -> void:
 		_camera.global_transform = global_transform
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
 	

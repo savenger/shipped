@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://addons/DynamicCameraSystem/CameraViewpoint.gd" id="7_4x65g"]
 [ext_resource type="PackedScene" uid="uid://cllk52ttqkq0p" path="res://level/cargo_port.tscn" id="9_wjkbu"]
 [ext_resource type="PackedScene" uid="uid://dkng47bn1uykv" path="res://Models/Bridge/bridge_begin.tscn" id="11_dyecb"]
-[ext_resource type="PackedScene" uid="uid://bkew66bfpvxfn" path="res://level/HUD.tscn" id="11_hg3qo"]
+[ext_resource type="PackedScene" path="res://level/HUD.tscn" id="11_hg3qo"]
 [ext_resource type="PackedScene" uid="uid://bgfbbk3stk57o" path="res://Models/Bridge/bridge_road.tscn" id="12_lojrj"]
 [ext_resource type="PackedScene" uid="uid://cmejtsul38hqv" path="res://Models/Bridge/ground_road.tscn" id="13_qsnl8"]
 [ext_resource type="PackedScene" uid="uid://lkfy15244dxg" path="res://ThunderStorm/thunder_storm.tscn" id="15_ii5b1"]
@@ -137,7 +137,7 @@ speed_rotation = 5.0
 [node name="FollowShipCamera" type="Node3D" parent="rendering" node_paths=PackedStringArray("watch", "follow") groups=["camera_dynamic"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.434, 3, 2.453)
 script = ExtResource("7_4x65g")
-watch = NodePath("../../ship")
+watch = NodePath("../../ship/Watch")
 follow = NodePath("../../ship/Follow")
 speed_movement = 10.0
 speed_rotation = 4.0
@@ -156,6 +156,9 @@ destination = NodePath("../destination")
 
 [node name="Follow" type="Node3D" parent="ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 8, 0)
+
+[node name="Watch" type="Node3D" parent="ship"]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 6.5, 0)
 
 [node name="destination" parent="." instance=ExtResource("5_b312y")]
 
