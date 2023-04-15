@@ -15,7 +15,6 @@ func _ready():
 	rng.randomize()
 	_generateBridgeArea()
 	_generateIslands()
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -50,7 +49,7 @@ func _placeIsland(x: int, z: int):
 	c.position.z = z * chunkSize - (mapSize * chunkSize) / 2
 	c.scale.x = rng.randf_range(10.0,15.0)
 	c.scale.z = rng.randf_range(10.0,15.0)
-	c.scale.y = 8.0
+	c.scale.y = 6.0
 	_placeLand(c)
 	islands.append({'x': c.position.x, 'z': c.position.z})
 
@@ -64,7 +63,6 @@ func _generateBridgeArea():
 	var c = CSGBox3D.new()
 	var c2 = CSGBox3D.new()
 	if horizontal:
-		
 		c.scale.x = rng.randf_range(10.0,15.0)
 		c.scale.z = (chunkSize * mapSize * scale_factor) / 2
 		c.scale.y = 12.0
