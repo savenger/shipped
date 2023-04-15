@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmejtsul38hqv"]
+[gd_scene load_steps=4 format=3 uid="uid://cmejtsul38hqv"]
 
-[ext_resource type="PackedScene" uid="uid://byyw5h2klhmv8" path="res://Models/Bridge/BridgeRoad.glb" id="1_brbkn"]
+[ext_resource type="PackedScene" uid="uid://cirve6a0ln2v7" path="res://Models/Bridge/GroundRoad.glb" id="1_y6r3s"]
+[ext_resource type="Texture2D" uid="uid://by4ha1fifgrxf" path="res://Models/Bridge/BridgeTexture.png" id="2_laqc4"]
 
-[node name="BridgeRoad" instance=ExtResource("1_brbkn")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vycrv"]
+albedo_texture = ExtResource("2_laqc4")
+
+[node name="GroundRoad" instance=ExtResource("1_y6r3s")]
+
+[node name="RoadGround" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vycrv")

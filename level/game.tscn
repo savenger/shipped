@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddqpjbaduw5w0"]
+[gd_scene load_steps=23 format=3 uid="uid://ddqpjbaduw5w0"]
 
 [ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
 [ext_resource type="Script" path="res://level/game.gd" id="1_t8u4u"]
@@ -10,6 +10,9 @@
 [ext_resource type="Material" uid="uid://bcoiid0gby8yj" path="res://assets/green.tres" id="5_ko8cj"]
 [ext_resource type="Script" path="res://addons/DynamicCameraSystem/CameraViewpoint.gd" id="7_4x65g"]
 [ext_resource type="PackedScene" uid="uid://cllk52ttqkq0p" path="res://level/cargo_port.tscn" id="9_wjkbu"]
+[ext_resource type="PackedScene" uid="uid://dkng47bn1uykv" path="res://Models/Bridge/bridge_begin.tscn" id="11_dyecb"]
+[ext_resource type="PackedScene" uid="uid://bgfbbk3stk57o" path="res://Models/Bridge/bridge_road.tscn" id="12_lojrj"]
+[ext_resource type="PackedScene" uid="uid://cmejtsul38hqv" path="res://Models/Bridge/ground_road.tscn" id="13_qsnl8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5voth"]
 fractal_type = 2
@@ -135,3 +138,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 8, 0)
 [node name="destination" parent="." instance=ExtResource("5_b312y")]
 
 [node name="CargoPort" parent="." instance=ExtResource("9_wjkbu")]
+
+[node name="Bridge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.15233, 0)
+
+[node name="BridgeBegin" parent="Bridge" instance=ExtResource("11_dyecb")]
+
+[node name="BridgeRoad" parent="Bridge" instance=ExtResource("12_lojrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29)
+
+[node name="GroundRoad" parent="Bridge" instance=ExtResource("13_qsnl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
