@@ -37,6 +37,11 @@ func _ready() -> void:
 	for port in cargo_ports:
 		port.ship_loading.connect(_on_ship_loading)
 
+func _process(delta):
+	if health <= 0.0:
+		emit_signal("die", delivered)
+		print("DIE")
+
 func _physics_process(_delta):
 	submerged = false
 	for p in probes:
@@ -86,5 +91,5 @@ func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
 		health -= int(linear_velocity.length())
 	print(health)
-	if health <= 0.0:
-		emit_signal("die", delivered)
+
+

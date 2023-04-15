@@ -127,9 +127,11 @@ current = true
 script = ExtResource("5_cy2qf")
 
 [node name="StaticCamera" type="Node3D" parent="rendering" node_paths=PackedStringArray("watch") groups=["camera_dynamic"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 12.3766, -4.612)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 25, 0)
 script = ExtResource("7_4x65g")
 watch = NodePath("../../ship")
+speed_movement = 5.0
+speed_rotation = 5.0
 
 [node name="FollowShipCamera" type="Node3D" parent="rendering" node_paths=PackedStringArray("watch", "follow") groups=["camera_dynamic"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.434, 3, 2.453)
