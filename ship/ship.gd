@@ -102,7 +102,8 @@ func _on_body_entered(_body):
 		if thrust == MAX_THRUST:
 			thrust = MAX_THRUST / 2.0
 			brake = MAX_BRAKE / 2.0
-		if health <= 0.0:
+		if health <= 0.0 and not dead:
+			dead = true
 			$CollisionShape3D.visible = false
-			$AnimationPlayerDeath.play()
+			$AnimationPlayerDeath.play("death")
 			emit_signal("die", delivered)

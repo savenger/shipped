@@ -27,7 +27,7 @@ func _old_process(delta):
 	time += delta
 	material.set_shader_parameter("wave_time", time)
 
-func get_height(world_position: Vector3) -> float:
+func get_height(_world_position: Vector3) -> float:
 	return global_position.y * height_scale
 
 func old_get_height(world_position: Vector3) -> float:
