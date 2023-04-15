@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddqpjbaduw5w0"]
+[gd_scene load_steps=24 format=3 uid="uid://ddqpjbaduw5w0"]
 
 [ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
 [ext_resource type="Script" path="res://level/game.gd" id="1_t8u4u"]
-[ext_resource type="Shader" path="res://level/water.gdshader" id="3_k1ggt"]
 [ext_resource type="PackedScene" uid="uid://dx5ef6x3ra2g" path="res://ship/ship.tscn" id="3_p70qk"]
 [ext_resource type="Script" path="res://level/Water.gd" id="3_wo30p"]
 [ext_resource type="PackedScene" uid="uid://dcstorccunohr" path="res://level/destination.tscn" id="5_b312y"]
@@ -17,60 +16,126 @@
 [ext_resource type="PackedScene" uid="uid://lkfy15244dxg" path="res://ThunderStorm/thunder_storm.tscn" id="15_ii5b1"]
 [ext_resource type="PackedScene" uid="uid://dxqls6cijoiuy" path="res://level/buoy.tscn" id="16_hhgii"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5voth"]
-fractal_type = 2
+[sub_resource type="Shader" id="Shader_e2vg5"]
+code = "/**
+* Ported from the original unity shader by Erik Roystan Ross
+* https://roystan.net/articles/toon-water.html
+* https://github.com/IronWarrior/ToonWaterShader
+* Camera Depth taken from Bastiaan Olij's video on: https://www.youtube.com/watch?v=Jq3he9Lbj7M
+*/
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q30fx"]
-seamless = true
-as_normal_map = true
-bump_strength = 1.5
-noise = SubResource("FastNoiseLite_5voth")
+shader_type spatial;
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_e17lk"]
-noise_type = 3
-fractal_type = 2
+const float SMOOTHSTEP_AA = 0.01;
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3pe1h"]
-seamless = true
-as_normal_map = true
-bump_strength = 1.5
-noise = SubResource("FastNoiseLite_e17lk")
+uniform sampler2D surfaceNoise;
+uniform sampler2D distortNoise;
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3c421"]
-noise_type = 3
-frequency = 0.001
-fractal_type = 2
-fractal_octaves = 3
+uniform float beer_factor = 0.8;
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4smob"]
-seamless = true
-noise = SubResource("FastNoiseLite_3c421")
+uniform float foam_distance = 0.01;
+uniform float foam_max_distance = 0.4;
+uniform float foam_min_distance = 0.04;
+uniform vec4 foam_color: source_color = vec4(1.0);
+
+uniform vec2 surface_noise_tiling = vec2(1.0, 4.0);
+uniform vec3 surface_noise_scroll = vec3(0.03, 0.03, 0.0);
+uniform float surface_noise_cutoff: hint_range(0, 1) = 0.777;
+uniform float surface_distortion_amount: hint_range(0, 1) = 0.27;
+
+uniform vec4 _DepthGradientShallow: source_color = vec4(0.325, 0.807, 0.971, 0.725);
+uniform vec4 _DepthGradientDeep: source_color = vec4(0.086, 0.407, 1, 0.749);
+uniform float _DepthMaxDistance: hint_range(0, 1) = 1.0;
+uniform float _DepthFactor = 1.0;
+
+varying vec2 noiseUV;
+varying vec2 distortUV;
+varying vec3 viewNormal;
+
+uniform sampler2D depth_texture : hint_depth_texture, filter_linear_mipmap;
+
+vec4 alphaBlend(vec4 top, vec4 bottom)
+{
+	vec3 color = (top.rgb * top.a) + (bottom.rgb * (1.0 - top.a));
+	float alpha = top.a + bottom.a * (1.0 - top.a);
+	
+	return vec4(color, alpha);
+}
+
+void vertex() {
+	viewNormal = (MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz;
+	noiseUV = UV * surface_noise_tiling;
+	distortUV = UV;
+}
+
+void fragment() {
+	// https://www.youtube.com/watch?v=Jq3he9Lbj7M
+	float depth = texture(depth_texture, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z;
+	depth = exp(-depth * beer_factor);
+	depth = 1.0 - depth;
+	
+	// Still unsure how to get properly the NORMAL from the camera
+	// this was my best attempt
+	vec3 existingNormal = vec3(dFdx(depth), dFdy(depth), 0);
+	
+	float normalDot = clamp(dot(existingNormal.xyz, viewNormal), 0.0, 1.0);
+	float foamDistance = mix(foam_max_distance, foam_min_distance, normalDot);
+	
+	float foamDepth = clamp(depth / foamDistance, 0.0, 1.0);
+	float surfaceNoiseCutoff = foamDepth * surface_noise_cutoff;
+	
+	vec4 distortNoiseSample = texture(distortNoise, distortUV);
+	vec2 distortAmount = (distortNoiseSample.xy * 2.0 -1.0) * surface_distortion_amount;
+	
+	vec2 noise_uv = vec2(
+		(noiseUV.x + TIME * surface_noise_scroll.x) + distortAmount.x , 
+		(noiseUV.y + TIME * surface_noise_scroll.y + distortAmount.y)
+	);
+	float surfaceNoiseSample = texture(surfaceNoise, noise_uv).r;
+	float surfaceNoiseAmount = smoothstep(surfaceNoiseCutoff - SMOOTHSTEP_AA, surfaceNoiseCutoff + SMOOTHSTEP_AA, surfaceNoiseSample);
+	
+	float waterDepth = clamp(depth / _DepthMaxDistance, 0.0, 1.0) * _DepthFactor;
+	vec4 waterColor = mix(_DepthGradientShallow, _DepthGradientDeep, waterDepth);
+
+	vec4 surfaceNoiseColor = foam_color;
+    surfaceNoiseColor.a *= surfaceNoiseAmount;
+	vec4 color = alphaBlend(surfaceNoiseColor, waterColor);
+	
+	ALBEDO = color.rgb;
+	ALPHA = color.a;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q4bne"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dursa"]
+noise = SubResource("FastNoiseLite_q4bne")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_80cyc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jcr81"]
+noise = SubResource("FastNoiseLite_80cyc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ti5nj"]
 render_priority = 0
-shader = ExtResource("3_k1ggt")
-shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
-shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)
-shader_parameter/color_deep = Color(0.105882, 0.294118, 0.329412, 1)
-shader_parameter/color_shallow = Color(0, 0.552941, 0.65098, 1)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.02
-shader_parameter/wave_time = 0.0
-shader_parameter/wave_direction = Vector2(2, 0)
-shader_parameter/wave_2_direction = Vector2(0, 1)
-shader_parameter/time_scale = 0.025
-shader_parameter/wave_speed = 0.2
-shader_parameter/noise_scale = 10.0
-shader_parameter/height_scale = 0.01
-shader_parameter/beers_law = 0.089
-shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 0.362
-shader_parameter/near = 0.5
-shader_parameter/far = 100.0
-shader_parameter/edge_color = Color(0, 0.552941, 0.65098, 1)
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_q30fx")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_3pe1h")
-shader_parameter/wave = SubResource("NoiseTexture2D_4smob")
+shader = SubResource("Shader_e2vg5")
+shader_parameter/beer_factor = 0.8
+shader_parameter/foam_distance = 0.01
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/surface_noise_tiling = Vector2(1, 4)
+shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
+shader_parameter/surface_noise_cutoff = 0.777
+shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/_DepthGradientShallow = Color(0.325, 0.807, 0.971, 0.725)
+shader_parameter/_DepthGradientDeep = Color(0.086, 0.407, 1, 0.749)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/_DepthFactor = 1.0
+shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_jcr81")
+shader_parameter/distortNoise = SubResource("NoiseTexture2D_dursa")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nub8u"]
 material = SubResource("ShaderMaterial_ti5nj")
@@ -95,6 +160,7 @@ script = ExtResource("3_wo30p")
 
 [node name="base" type="CSGBox3D" parent="terrain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+visible = false
 use_collision = true
 size = Vector3(256, 12, 256)
 material = ExtResource("5_ko8cj")
@@ -170,9 +236,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6935, 15, 16.733)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m4ws3")
-<<<<<<< HEAD
-[node name="ThunderStorm1" parent="." instance=ExtResource("15_ii5b1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.694, 15, 9.107)
 
 [node name="ThunderStorm2" parent="." instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5483, 15, 71.6099)
