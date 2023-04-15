@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmf212607i0tj"]
+
+[ext_resource type="Script" path="res://level/HUD.gd" id="1_lngww"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_lngww")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Text" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Text"]
+offset_left = 94.0
+offset_top = 87.0
+offset_right = 1009.0
+offset_bottom = 165.0
+text = "Game Over.
+
+You sunk your ship.
+No one can receive any more goods. 
+Please be more careful next time. "
+
+[node name="Score" type="Label" parent="Text"]
+offset_left = 94.0
+offset_top = 263.0
+offset_right = 1009.0
+offset_bottom = 393.0
+text = "You delivered X goods."

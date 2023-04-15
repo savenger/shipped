@@ -7,6 +7,7 @@ var base_volume : int = 0
 var music_volume : int = -20
 
 var keys = preload("res://level/Keys.tscn").instantiate()
+var game_over = preload("res://level/GameOver.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +38,7 @@ func _on_delivered():
 	$destination.position = get_random_destination_position()
 
 func adjust_volume(vol):
-	get_parent().get_node("AudioStreamPlayer").volume_db = music_volume + vol
+	$AudioStreamPlayer.volume_db = music_volume + vol
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -50,6 +51,9 @@ func _process(_delta):
 
 func _on_die(delivered):
 	print("ship sank, you delivered %s goods" % delivered)
+	game_over.get_node("Text/Score").text = ("You delivered %s goods" % str($ship.delivered))
+	add_child(game_over)
+	await get_tree().create_timer(7).timeout
 	get_tree().reload_current_scene()
 
 func hide_keys():

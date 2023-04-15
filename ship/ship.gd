@@ -14,6 +14,7 @@ var brake : float = MAX_BRAKE
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
 var delivered : int = 0
+var dead: bool = false
 
 @export_category("Cargo")
 # Whether the ship has cargo or not ...
@@ -40,11 +41,11 @@ func _ready() -> void:
 		port.ship_loading.connect(_on_ship_loading)
 
 func _process(_delta):
-	if health <= 0.0:
-		emit_signal("die", delivered)
-		print("DIE")
+	pass
 
 func _physics_process(_delta):
+	if health <= 0.0:
+		return
 	submerged = false
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y 
@@ -53,6 +54,8 @@ func _physics_process(_delta):
 			apply_force(Vector3.UP * float_force * gravity * depth, p.global_position - global_position)
 
 func _integrate_forces(state: PhysicsDirectBodyState3D):
+	if health <= 0.0:
+		return
 	if submerged:
 		state.linear_velocity *=  1 - water_drag
 		state.angular_velocity *= 1 - water_angular_drag 
@@ -99,5 +102,7 @@ func _on_body_entered(_body):
 		if thrust == MAX_THRUST:
 			thrust = MAX_THRUST / 2.0
 			brake = MAX_BRAKE / 2.0
-	if health <= 0.0:
-		emit_signal("die", delivered)
+		if health <= 0.0:
+			$CollisionShape3D.visible = false
+			$AnimationPlayerDeath.play()
+			emit_signal("die", delivered)

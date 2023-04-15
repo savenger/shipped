@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dx5ef6x3ra2g"]
+[gd_scene load_steps=75 format=3 uid="uid://dx5ef6x3ra2g"]
 
 [ext_resource type="Script" path="res://ship/ship.gd" id="1_h3pvo"]
 [ext_resource type="PackedScene" uid="uid://c28ee3jx33wh3" path="res://Models/Ship/Ship.tscn" id="2_r2j2i"]
@@ -12,243 +12,243 @@ size = Vector3(10, 2, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_n8xi3"]
 size = Vector3(10, 3, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_g76vv"]
+[sub_resource type="BoxMesh" id="BoxMesh_721o7"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qsa3g"]
+[sub_resource type="BoxMesh" id="BoxMesh_oday8"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2sd1u"]
+[sub_resource type="BoxMesh" id="BoxMesh_u6q7g"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_n0ylj"]
+[sub_resource type="BoxMesh" id="BoxMesh_2ffvr"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_duuqw"]
+[sub_resource type="BoxMesh" id="BoxMesh_c2wo4"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_q3ngm"]
+[sub_resource type="BoxMesh" id="BoxMesh_4d4uv"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_kdprb"]
+[sub_resource type="BoxMesh" id="BoxMesh_b2sme"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_v07f5"]
+[sub_resource type="BoxMesh" id="BoxMesh_pwhk0"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_bq3f8"]
+[sub_resource type="BoxMesh" id="BoxMesh_pmcdj"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_iym6e"]
+[sub_resource type="BoxMesh" id="BoxMesh_jkxy4"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_q83um"]
+[sub_resource type="BoxMesh" id="BoxMesh_mn3iu"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_py0aj"]
+[sub_resource type="BoxMesh" id="BoxMesh_sebhs"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hao5e"]
+[sub_resource type="BoxMesh" id="BoxMesh_vnj4r"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ypwgk"]
+[sub_resource type="BoxMesh" id="BoxMesh_pb3an"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dsjv2"]
+[sub_resource type="BoxMesh" id="BoxMesh_y00ob"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_u50t6"]
+[sub_resource type="BoxMesh" id="BoxMesh_x8dht"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_h8ums"]
+[sub_resource type="BoxMesh" id="BoxMesh_qvbga"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_g0bo1"]
+[sub_resource type="BoxMesh" id="BoxMesh_n7jdj"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_u21t5"]
+[sub_resource type="BoxMesh" id="BoxMesh_1qwc7"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5angt"]
+[sub_resource type="BoxMesh" id="BoxMesh_ykudq"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_t3ifr"]
+[sub_resource type="BoxMesh" id="BoxMesh_1tlmy"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_3eynb"]
+[sub_resource type="BoxMesh" id="BoxMesh_t6vbi"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_874t0"]
+[sub_resource type="BoxMesh" id="BoxMesh_dxfx7"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vcdmp"]
+[sub_resource type="BoxMesh" id="BoxMesh_epukn"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5kqch"]
+[sub_resource type="BoxMesh" id="BoxMesh_iqd3j"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_02hj4"]
+[sub_resource type="BoxMesh" id="BoxMesh_p2lir"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_shvx2"]
+[sub_resource type="BoxMesh" id="BoxMesh_l6bdn"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_gnnod"]
+[sub_resource type="BoxMesh" id="BoxMesh_iq3fy"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_d8a7g"]
+[sub_resource type="BoxMesh" id="BoxMesh_blfd7"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5u7is"]
+[sub_resource type="BoxMesh" id="BoxMesh_xeqdt"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_yn78y"]
+[sub_resource type="BoxMesh" id="BoxMesh_seo3v"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_npjuy"]
+[sub_resource type="BoxMesh" id="BoxMesh_n7prc"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ecakg"]
+[sub_resource type="BoxMesh" id="BoxMesh_0eeor"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_sy5vu"]
+[sub_resource type="BoxMesh" id="BoxMesh_y4egw"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5npp2"]
+[sub_resource type="BoxMesh" id="BoxMesh_ukrfb"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_fqaos"]
+[sub_resource type="BoxMesh" id="BoxMesh_gq6s0"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ry1o3"]
+[sub_resource type="BoxMesh" id="BoxMesh_y0l5l"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vr1u6"]
+[sub_resource type="BoxMesh" id="BoxMesh_851io"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_h2jj4"]
+[sub_resource type="BoxMesh" id="BoxMesh_thr5s"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ebhmd"]
+[sub_resource type="BoxMesh" id="BoxMesh_niacb"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2afp6"]
+[sub_resource type="BoxMesh" id="BoxMesh_q1flq"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rurnm"]
+[sub_resource type="BoxMesh" id="BoxMesh_l3524"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2xk11"]
+[sub_resource type="BoxMesh" id="BoxMesh_hnrdn"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7b506"]
+[sub_resource type="BoxMesh" id="BoxMesh_txhsg"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_qmbk1"]
+[sub_resource type="BoxMesh" id="BoxMesh_i7v2b"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_h2ojl"]
+[sub_resource type="BoxMesh" id="BoxMesh_vxbw8"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_uvq3v"]
+[sub_resource type="BoxMesh" id="BoxMesh_yqpwm"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_67v2q"]
+[sub_resource type="BoxMesh" id="BoxMesh_utl1d"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_s0n6b"]
+[sub_resource type="BoxMesh" id="BoxMesh_r7n3i"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_y432s"]
+[sub_resource type="BoxMesh" id="BoxMesh_31wf6"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_32s1b"]
+[sub_resource type="BoxMesh" id="BoxMesh_iyc0r"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_psbde"]
+[sub_resource type="BoxMesh" id="BoxMesh_x2xvr"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_m4pnr"]
+[sub_resource type="BoxMesh" id="BoxMesh_ef5c1"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ry537"]
+[sub_resource type="BoxMesh" id="BoxMesh_onykd"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_byecu"]
+[sub_resource type="BoxMesh" id="BoxMesh_0xahf"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_naxmx"]
+[sub_resource type="BoxMesh" id="BoxMesh_7d7me"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_v52tm"]
+[sub_resource type="BoxMesh" id="BoxMesh_xjq5n"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hup5b"]
+[sub_resource type="BoxMesh" id="BoxMesh_e2ln6"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_65atj"]
+[sub_resource type="BoxMesh" id="BoxMesh_6a4ae"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_6g58d"]
+[sub_resource type="BoxMesh" id="BoxMesh_mg5sf"]
 resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
@@ -318,6 +318,67 @@ _data = {
 offsets = PackedFloat32Array(0, 0.293706, 0.503497, 0.748252, 1)
 colors = PackedColorArray(0.000113828, 0.000113828, 0.000113828, 0, 0.321728, 0.321728, 0.321728, 1, 0.259294, 0.259294, 0.259294, 1, 0.347817, 0.347817, 0.347817, 1, 0.670588, 0.670588, 0.670588, 0.0431373)
 
+[sub_resource type="Animation" id="Animation_pw6j8"]
+resource_name = "death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.61799, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lh6md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_54k3n"]
+_data = {
+"RESET": SubResource("Animation_lh6md"),
+"death": SubResource("Animation_pw6j8")
+}
+
 [node name="Ship" type="RigidBody3D" groups=["ship"]]
 mass = 10.0
 max_contacts_reported = 50000
@@ -375,242 +436,242 @@ _containers = Array[PackedScene]([ExtResource("3_4pe42")])
 
 [node name="CargoContainer1" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2)
-mesh = SubResource("BoxMesh_g76vv")
+mesh = SubResource("BoxMesh_721o7")
 
 [node name="CargoContainer2" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
-mesh = SubResource("BoxMesh_qsa3g")
+mesh = SubResource("BoxMesh_oday8")
 
 [node name="CargoContainer3" parent="Deck" instance=ExtResource("3_4pe42")]
-mesh = SubResource("BoxMesh_2sd1u")
+mesh = SubResource("BoxMesh_u6q7g")
 
 [node name="CargoContainer4" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
-mesh = SubResource("BoxMesh_n0ylj")
+mesh = SubResource("BoxMesh_2ffvr")
 
 [node name="CargoContainer5" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
-mesh = SubResource("BoxMesh_duuqw")
+mesh = SubResource("BoxMesh_c2wo4")
 
 [node name="CargoContainer6" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 1.2)
-mesh = SubResource("BoxMesh_q3ngm")
+mesh = SubResource("BoxMesh_4d4uv")
 
 [node name="CargoContainer7" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0.6)
-mesh = SubResource("BoxMesh_kdprb")
+mesh = SubResource("BoxMesh_b2sme")
 
 [node name="CargoContainer8" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0)
-mesh = SubResource("BoxMesh_v07f5")
+mesh = SubResource("BoxMesh_pwhk0")
 
 [node name="CargoContainer9" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, -0.6)
-mesh = SubResource("BoxMesh_bq3f8")
+mesh = SubResource("BoxMesh_pmcdj")
 
 [node name="CargoContainer10" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, -1.2)
-mesh = SubResource("BoxMesh_iym6e")
+mesh = SubResource("BoxMesh_jkxy4")
 
 [node name="CargoContainer11" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 1.2)
-mesh = SubResource("BoxMesh_q83um")
+mesh = SubResource("BoxMesh_mn3iu")
 
 [node name="CargoContainer12" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 0.6)
-mesh = SubResource("BoxMesh_py0aj")
+mesh = SubResource("BoxMesh_sebhs")
 
 [node name="CargoContainer13" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 0)
-mesh = SubResource("BoxMesh_hao5e")
+mesh = SubResource("BoxMesh_vnj4r")
 
 [node name="CargoContainer14" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, -0.6)
-mesh = SubResource("BoxMesh_ypwgk")
+mesh = SubResource("BoxMesh_pb3an")
 
 [node name="CargoContainer15" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, -1.2)
-mesh = SubResource("BoxMesh_dsjv2")
+mesh = SubResource("BoxMesh_y00ob")
 
 [node name="CargoContainer16" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 1.2)
-mesh = SubResource("BoxMesh_u50t6")
+mesh = SubResource("BoxMesh_x8dht")
 
 [node name="CargoContainer17" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 0.6)
-mesh = SubResource("BoxMesh_h8ums")
+mesh = SubResource("BoxMesh_qvbga")
 
 [node name="CargoContainer18" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 0)
-mesh = SubResource("BoxMesh_g0bo1")
+mesh = SubResource("BoxMesh_n7jdj")
 
 [node name="CargoContainer19" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, -0.6)
-mesh = SubResource("BoxMesh_u21t5")
+mesh = SubResource("BoxMesh_1qwc7")
 
 [node name="CargoContainer20" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, -1.2)
-mesh = SubResource("BoxMesh_5angt")
+mesh = SubResource("BoxMesh_ykudq")
 
 [node name="CargoContainer21" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 1.2)
-mesh = SubResource("BoxMesh_t3ifr")
+mesh = SubResource("BoxMesh_1tlmy")
 
 [node name="CargoContainer22" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.6)
-mesh = SubResource("BoxMesh_3eynb")
+mesh = SubResource("BoxMesh_t6vbi")
 
 [node name="CargoContainer23" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-mesh = SubResource("BoxMesh_874t0")
+mesh = SubResource("BoxMesh_dxfx7")
 
 [node name="CargoContainer24" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.6)
-mesh = SubResource("BoxMesh_vcdmp")
+mesh = SubResource("BoxMesh_epukn")
 
 [node name="CargoContainer25" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1.2)
-mesh = SubResource("BoxMesh_5kqch")
+mesh = SubResource("BoxMesh_iqd3j")
 
 [node name="CargoContainer26" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.6, 1.2)
-mesh = SubResource("BoxMesh_02hj4")
+mesh = SubResource("BoxMesh_p2lir")
 
 [node name="CargoContainer27" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.6, 0.6)
-mesh = SubResource("BoxMesh_shvx2")
+mesh = SubResource("BoxMesh_l6bdn")
 
 [node name="CargoContainer28" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.6, 0)
-mesh = SubResource("BoxMesh_gnnod")
+mesh = SubResource("BoxMesh_iq3fy")
 
 [node name="CargoContainer29" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.6, -0.6)
-mesh = SubResource("BoxMesh_d8a7g")
+mesh = SubResource("BoxMesh_blfd7")
 
 [node name="CargoContainer30" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.6, -1.2)
-mesh = SubResource("BoxMesh_5u7is")
+mesh = SubResource("BoxMesh_xeqdt")
 
 [node name="CargoContainer31" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.6, 1.2)
-mesh = SubResource("BoxMesh_yn78y")
+mesh = SubResource("BoxMesh_seo3v")
 
 [node name="CargoContainer32" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.6, 0.6)
-mesh = SubResource("BoxMesh_npjuy")
+mesh = SubResource("BoxMesh_n7prc")
 
 [node name="CargoContainer33" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.6, 0)
-mesh = SubResource("BoxMesh_ecakg")
+mesh = SubResource("BoxMesh_0eeor")
 
 [node name="CargoContainer34" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.6, -0.6)
-mesh = SubResource("BoxMesh_sy5vu")
+mesh = SubResource("BoxMesh_y4egw")
 
 [node name="CargoContainer35" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.6, -1.2)
-mesh = SubResource("BoxMesh_5npp2")
+mesh = SubResource("BoxMesh_ukrfb")
 
 [node name="CargoContainer36" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.6, 1.2)
-mesh = SubResource("BoxMesh_fqaos")
+mesh = SubResource("BoxMesh_gq6s0")
 
 [node name="CargoContainer37" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.6, 0.6)
-mesh = SubResource("BoxMesh_ry1o3")
+mesh = SubResource("BoxMesh_y0l5l")
 
 [node name="CargoContainer38" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.6, 0)
-mesh = SubResource("BoxMesh_vr1u6")
+mesh = SubResource("BoxMesh_851io")
 
 [node name="CargoContainer39" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.6, -0.6)
-mesh = SubResource("BoxMesh_h2jj4")
+mesh = SubResource("BoxMesh_thr5s")
 
 [node name="CargoContainer40" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0.6, -1.2)
-mesh = SubResource("BoxMesh_ebhmd")
+mesh = SubResource("BoxMesh_niacb")
 
 [node name="CargoContainer41" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 1.2)
-mesh = SubResource("BoxMesh_2afp6")
+mesh = SubResource("BoxMesh_q1flq")
 
 [node name="CargoContainer42" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.6)
-mesh = SubResource("BoxMesh_rurnm")
+mesh = SubResource("BoxMesh_l3524")
 
 [node name="CargoContainer43" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("BoxMesh_2xk11")
+mesh = SubResource("BoxMesh_hnrdn")
 
 [node name="CargoContainer44" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.6)
-mesh = SubResource("BoxMesh_7b506")
+mesh = SubResource("BoxMesh_txhsg")
 
 [node name="CargoContainer45" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1.2)
-mesh = SubResource("BoxMesh_qmbk1")
+mesh = SubResource("BoxMesh_i7v2b")
 
 [node name="CargoContainer46" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 1.2, 1.2)
-mesh = SubResource("BoxMesh_h2ojl")
+mesh = SubResource("BoxMesh_vxbw8")
 
 [node name="CargoContainer47" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 1.2, 0.6)
-mesh = SubResource("BoxMesh_uvq3v")
+mesh = SubResource("BoxMesh_yqpwm")
 
 [node name="CargoContainer48" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 1.2, 0)
-mesh = SubResource("BoxMesh_67v2q")
+mesh = SubResource("BoxMesh_utl1d")
 
 [node name="CargoContainer49" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 1.2, -0.6)
-mesh = SubResource("BoxMesh_s0n6b")
+mesh = SubResource("BoxMesh_r7n3i")
 
 [node name="CargoContainer50" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 1.2, -1.2)
-mesh = SubResource("BoxMesh_y432s")
+mesh = SubResource("BoxMesh_31wf6")
 
 [node name="CargoContainer51" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.2, 1.2)
-mesh = SubResource("BoxMesh_32s1b")
+mesh = SubResource("BoxMesh_iyc0r")
 
 [node name="CargoContainer52" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.2, 0.6)
-mesh = SubResource("BoxMesh_psbde")
+mesh = SubResource("BoxMesh_x2xvr")
 
 [node name="CargoContainer53" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.2, 0)
-mesh = SubResource("BoxMesh_m4pnr")
+mesh = SubResource("BoxMesh_ef5c1")
 
 [node name="CargoContainer54" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.2, -0.6)
-mesh = SubResource("BoxMesh_ry537")
+mesh = SubResource("BoxMesh_onykd")
 
 [node name="CargoContainer55" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 1.2, -1.2)
-mesh = SubResource("BoxMesh_byecu")
+mesh = SubResource("BoxMesh_0xahf")
 
 [node name="CargoContainer56" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 1.2, 1.2)
-mesh = SubResource("BoxMesh_naxmx")
+mesh = SubResource("BoxMesh_7d7me")
 
 [node name="CargoContainer57" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 1.2, 0.6)
-mesh = SubResource("BoxMesh_v52tm")
+mesh = SubResource("BoxMesh_xjq5n")
 
 [node name="CargoContainer58" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 1.2, 0)
-mesh = SubResource("BoxMesh_hup5b")
+mesh = SubResource("BoxMesh_e2ln6")
 
 [node name="CargoContainer59" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 1.2, -0.6)
-mesh = SubResource("BoxMesh_65atj")
+mesh = SubResource("BoxMesh_6a4ae")
 
 [node name="CargoContainer60" parent="Deck" instance=ExtResource("3_4pe42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 1.2, -1.2)
-mesh = SubResource("BoxMesh_6g58d")
+mesh = SubResource("BoxMesh_mg5sf")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -669,5 +730,10 @@ angular_velocity_max = 50.0
 scale_amount_min = 0.5
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_bucq7")
+
+[node name="AnimationPlayerDeath" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_54k3n")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
