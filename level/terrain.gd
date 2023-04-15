@@ -34,7 +34,7 @@ func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_f
 		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
 		$Bridge/BridgeEnd.position.x = x
 		$Bridge/BridgeEnd.position.z = (mapSize * chunkSize) - pen_size_1
-		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize
+		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize - 2 * ramp_size
 	else:
 		$Bridge/BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
 		$Bridge/BridgeBegin.position.x = pen_size_1
@@ -42,7 +42,7 @@ func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_f
 		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
 		$Bridge/BridgeEnd.position.x = (mapSize * chunkSize) - pen_size_1
 		$Bridge/BridgeEnd.position.z = z
-		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize
+		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize - 2 * ramp_size
 
 func _placeLand(c: CSGShape3D):
 	c.use_collision = true
