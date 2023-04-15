@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1nicr827hhvr"]
+[gd_scene load_steps=6 format=3 uid="uid://bqxipisucdhvd"]
+
+[ext_resource type="Material" uid="uid://dvkj2vlhjsycw" path="res://Materials/Green.tres" id="1_b2hvl"]
+[ext_resource type="Script" path="res://level/CargoContainer.gd" id="2_0isyc"]
+[ext_resource type="Material" uid="uid://c1r8kb6ik8gte" path="res://Materials/Orange.tres" id="3_52gdg"]
+[ext_resource type="Material" uid="uid://07sl5jkjfdna" path="res://Materials/Yellow.tres" id="4_6quf4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_3coqf"]
+resource_local_to_scene = true
 size = Vector3(1, 0.6, 0.5)
 
 [node name="CargoContainer" type="MeshInstance3D"]
 visible = false
 mesh = SubResource("BoxMesh_3coqf")
+script = ExtResource("2_0isyc")
+materials = Array[StandardMaterial3D]([ExtResource("1_b2hvl"), ExtResource("3_52gdg"), ExtResource("4_6quf4")])

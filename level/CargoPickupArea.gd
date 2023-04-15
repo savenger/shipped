@@ -29,9 +29,8 @@ func _process(delta):
 
 	# Loading ship
 	_timer += delta
-	var load_percentage: float = (_parent.duration / _docked_ship.cargo_capacity) * 100
-	_parent.ship_loading.emit(_parent, load_percentage)
-	print("Loading ship: %s" % round(load_percentage))
+	var increment: float = (_parent.duration / _docked_ship.cargo_capacity) * 100
+	_parent.ship_loading.emit(_parent, increment)
 		
 	if _timer >= _parent.duration:
 		# Finished loading

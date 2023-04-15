@@ -66,7 +66,7 @@ func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 	else:
 		# Loading ship
 		cargo_amount += progress
-		print(cargo_amount)
+		
 
 func _on_delivered():
 	# Reset cargo amount

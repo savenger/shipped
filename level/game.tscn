@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://level/Water.gd" id="3_wo30p"]
 [ext_resource type="PackedScene" uid="uid://dcstorccunohr" path="res://level/destination.tscn" id="5_b312y"]
 [ext_resource type="Script" path="res://level/CameraToggle.gd" id="5_cy2qf"]
-[ext_resource type="Material" path="res://assets/green.tres" id="5_ko8cj"]
+[ext_resource type="Material" uid="uid://bcoiid0gby8yj" path="res://assets/green.tres" id="5_ko8cj"]
 [ext_resource type="Script" path="res://addons/DynamicCameraSystem/CameraViewpoint.gd" id="7_4x65g"]
 [ext_resource type="PackedScene" uid="uid://cllk52ttqkq0p" path="res://level/cargo_port.tscn" id="9_wjkbu"]
 

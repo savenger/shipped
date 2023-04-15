@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ship/ship.gd" id="1_h3pvo"]
 [ext_resource type="PackedScene" uid="uid://c28ee3jx33wh3" path="res://Models/Ship/Ship.tscn" id="2_r2j2i"]
-[ext_resource type="PackedScene" uid="uid://c1nicr827hhvr" path="res://level/cargo_container.tscn" id="3_4pe42"]
+[ext_resource type="PackedScene" uid="uid://bqxipisucdhvd" path="res://level/cargo_container.tscn" id="3_4pe42"]
 [ext_resource type="Script" path="res://ship/CargoDeck.gd" id="3_ev1fy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2tkv"]
