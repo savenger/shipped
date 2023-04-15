@@ -2,8 +2,8 @@ extends RigidBody3D
 
 var acc : float = 0.0
 var rot : Vector3 = Vector3(0, 0, 0)
-var rot_speed : float = 2.6
-var thrust : float = 4.0
+var rot_speed : int = 4
+var thrust : float = 3.0
 var brake : float = 2.0
 var vel = Vector3(0, 0, 0)
 var torque : int = 200
@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -29,7 +29,7 @@ func _process(delta):
 
 var submerged := false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	submerged = false
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y 
@@ -43,9 +43,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		state.angular_velocity *= 1 - water_angular_drag 
 	var rotation_direction : Vector3 = Vector3(0, 0, 0)
 	if Input.is_action_pressed("Turn Right"):
-		rotation_direction.y -= 1
+		rotation_direction.y -= rot_speed
 	if Input.is_action_pressed("Turn Left"):
-		rotation_direction.y += 1
+		rotation_direction.y += rot_speed
 	if Input.is_action_pressed("Thrust"):
 		acc = thrust
 	else:

@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode depth_draw_always;
 
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+//uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D DEPTH_TEXTURE: hint_depth_texture, filter_linear_mipmap;
 
 uniform vec3 albedo : source_color;
@@ -56,7 +56,8 @@ void fragment() {
 	float depth_blend = exp((depth + depth_offset) * -beers_law);
 	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);
 	
-	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;
+	//vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;
+	vec3 screen_color = albedo;
 	vec3 depth_color = mix(color_shallow.rgb, color_deep.rgb, depth_blend);
 	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend * 0.5);
 	

@@ -69,7 +69,7 @@ subdivide_width = 20
 subdivide_depth = 20
 
 [sub_resource type="Environment" id="Environment_m4ws3"]
-ambient_light_color = Color(0.980392, 0.980392, 0.980392, 1)
+ambient_light_color = Color(0.423529, 0.423529, 0.423529, 1)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_t8u4u")
