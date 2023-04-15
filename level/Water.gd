@@ -29,6 +29,8 @@ func _old_process(delta):
 
 func get_height(world_position: Vector3) -> float:
 	return global_position.y * height_scale
+
+func old_get_height(world_position: Vector3) -> float:
 	var uv_x = wrapf(world_position.x / noise_scale + time * wave_speed, 0, 1)
 	var uv_y = wrapf(world_position.z / noise_scale + time * wave_speed, 0, 1)
 
