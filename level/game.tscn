@@ -109,7 +109,7 @@ light_energy = 10.882
 omni_range = 246.754
 
 [node name="ship" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("3_p70qk")]
-transform = Transform3D(0.990517, 0, 0.137393, 0, 1, 0, -0.137393, 0, 0.990517, 19.7137, -0.290461, 53.6842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 destination = NodePath("../destination")
 
 [node name="Follow" type="Node3D" parent="ship"]

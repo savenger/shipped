@@ -23,7 +23,7 @@ offset_bottom = 165.0
 text = "Game Over.
 
 You sunk your ship.
-No one can receive any more goods. 
+No one can receive the precious goods any more. 
 Please be more careful next time. "
 
 [node name="Score" type="Label" parent="Text"]

@@ -53,7 +53,7 @@ func _on_die(delivered):
 	print("ship sank, you delivered %s goods" % delivered)
 	game_over.get_node("Text/Score").text = ("You delivered %s goods" % str($ship.delivered))
 	add_child(game_over)
-	await get_tree().create_timer(7).timeout
+	await get_tree().create_timer(10).timeout
 	get_tree().reload_current_scene()
 
 func hide_keys():
