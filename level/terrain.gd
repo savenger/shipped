@@ -21,21 +21,28 @@ func _process(_delta):
 	pass
 
 func _placeBridge(horizontal: bool, x: int, z: int, scale_factor: float, scale_factor2: float):
-	var c = CSGBox3D.new()
 	var scale : float= 1 - (scale_factor + scale_factor2) / 2
 	var pen_size_1 = scale_factor * (mapSize * chunkSize) / 2
 	var pen_size_2 = scale_factor2 * (mapSize * chunkSize) / 2
 	var pen_gap = (mapSize * chunkSize) - pen_size_1 - pen_size_2
+	var ramp_size = 3.2
+	horizontal = true
 	if horizontal:
-		c.position.x = x
-		c.position.z = pen_size_1 - (mapSize * chunkSize) / 2 + pen_gap / 2
-		c.scale.z = scale * mapSize * chunkSize
+		$Bridge/BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
+		$Bridge/BridgeBegin.position.x = x
+		$Bridge/BridgeBegin.position.z = pen_size_1
+		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
+		$Bridge/BridgeEnd.position.x = x
+		$Bridge/BridgeEnd.position.z = (mapSize * chunkSize) - pen_size_1
+		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize
 	else:
-		c.position.x = pen_size_1 - (mapSize * chunkSize) / 2 + pen_gap / 2
-		c.position.z = z
-		c.scale.x = scale * mapSize * chunkSize
-	c.position.y = 10
-	$base.add_child(c)
+		$Bridge/BridgeBegin.rotate(Vector3.UP, 3 * PI / 2)
+		$Bridge/BridgeBegin.position.x = pen_size_1
+		$Bridge/BridgeBegin.position.z = z
+		$Bridge/BridgeEnd.rotate(Vector3.UP, PI / 2)
+		$Bridge/BridgeEnd.position.x = (mapSize * chunkSize) - pen_size_1
+		$Bridge/BridgeEnd.position.z = z
+		$Bridge/BridgeRoad.scale.z = scale * mapSize * chunkSize
 
 func _placeLand(c: CSGShape3D):
 	c.use_collision = true
