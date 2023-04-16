@@ -81,16 +81,30 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	state.apply_torque(rotation_direction * torque)
 	state.apply_force(($front.global_position - global_position) * 100 * acc)
 
+func start_loading_sound():
+	if !$AudioLoading.playing:
+		if !$AudioLoadingBegin.playing:
+			$AudioLoadingBegin.play()
 
 func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 	if cargo_amount >= cargo_capacity:
 		print("Ship at max capcity")
 	else:
+		start_loading_sound()
 		# Loading ship
 		cargo_amount = progress
+		if cargo_amount == 100:
+			print("full cargo!!!")
+			if $AudioLoading.playing:
+				print("stop playing loading sound")
+				$AudioLoading.stop()
+			if !$AudioLoadingEnd.playing:
+				$AudioLoadingEnd.play()
 
 
 func _on_unloading(progress: float):
+	if cargo_amount == 100:
+		start_loading_sound()
 	if progress <= 0:
 		return
 	print("do unload")
@@ -101,6 +115,9 @@ func _on_delivered():
 	# Reset cargo amount
 	cargo_amount = 0
 	delivered += 60
+	if $AudioLoading.playing:
+		$AudioLoading.stop()
+	$AudioLoadingEnd.play()
 	print("Reset cargo amount")
 
 func struck_by_lightning():
@@ -122,3 +139,7 @@ func _on_body_entered(_body):
 			$CollisionShape3D.visible = false
 			$AnimationPlayerDeath.play("death")
 			emit_signal("die", delivered)
+
+
+func _on_audio_loading_begin_finished():
+	$AudioLoading.play()
