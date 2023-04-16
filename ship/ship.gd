@@ -100,7 +100,7 @@ func _on_unloading(progress: float):
 func _on_delivered():
 	# Reset cargo amount
 	cargo_amount = 0
-	delivered += 1
+	delivered += 60
 	print("Reset cargo amount")
 
 func struck_by_lightning():
