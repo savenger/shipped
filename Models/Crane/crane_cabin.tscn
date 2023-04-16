@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1d771cq5fb1x"]
+
+[ext_resource type="PackedScene" uid="uid://c7b0em26kiye3" path="res://Models/Crane/CraneCabin.glb" id="1_nhhn1"]
+[ext_resource type="Texture2D" uid="uid://t1gk54de41j8" path="res://Models/Crane/CraneTexture.png" id="2_j8doy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brjw1"]
+albedo_texture = ExtResource("2_j8doy")
+
+[node name="CraneCabin" instance=ExtResource("1_nhhn1")]
+
+[node name="Cabin" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_brjw1")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://caditg2da5668"]
+
+[ext_resource type="PackedScene" uid="uid://bxsm2syk63p6q" path="res://Models/Crane/CraneFoot.glb" id="1_bimme"]
+[ext_resource type="Texture2D" uid="uid://t1gk54de41j8" path="res://Models/Crane/CraneTexture.png" id="2_qvjem"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdj1w"]
+albedo_texture = ExtResource("2_qvjem")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44qe5"]
+albedo_texture = ExtResource("2_qvjem")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kigi"]
+albedo_texture = ExtResource("2_qvjem")
+
+[node name="CraneFoot" instance=ExtResource("1_bimme")]
+
+[node name="Foot" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kdj1w")
+
+[node name="Cube" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_44qe5")
+
+[node name="Icosphere" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2kigi")
