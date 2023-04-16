@@ -50,6 +50,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	_loading_state = LOADING_SHIP
 	_docked_ship = body
+	CameraManager.set_current_camera(_parent.cargo_camera)
 
 
 func _on_body_exited(body: Node3D) -> void:
@@ -58,3 +59,4 @@ func _on_body_exited(body: Node3D) -> void:
 	if _loading_state != LOADED_SHIP:
 		_loading_state = AWAITING_SHIP
 	_docked_ship = null
+	CameraManager.set_current_camera(_parent.ship_camera)

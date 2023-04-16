@@ -120,8 +120,21 @@ transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 6.5, 
 
 [node name="destination" parent="." instance=ExtResource("5_b312y")]
 
-[node name="CargoPort" parent="." instance=ExtResource("9_wjkbu")]
+[node name="CargoPort" parent="." node_paths=PackedStringArray("cargo_camera", "ship_camera") instance=ExtResource("9_wjkbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -21)
+cargo_camera = NodePath("../CargoPortCamera")
+ship_camera = NodePath("../rendering/FollowShipCamera")
+
+[node name="Follow" type="Node3D" parent="CargoPort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17094, 12.9838, -0.210953)
+
+[node name="CargoPortCamera" type="Node3D" parent="." node_paths=PackedStringArray("watch", "follow") groups=["camera_dynamic"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.52889, 7.62892, 7.31195)
+script = ExtResource("7_4x65g")
+watch = NodePath("../CargoPort")
+follow = NodePath("../CargoPort/Follow")
+speed_movement = 5.0
+speed_rotation = 5.0
 
 [node name="HUD" parent="." instance=ExtResource("11_hg3qo")]
 
