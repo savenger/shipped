@@ -16,6 +16,8 @@ var torque : int = 200
 var delivered : int = 0
 var dead: bool = false
 
+@export var strike_force := 5000.0
+
 @export_category("Cargo")
 # Whether the ship has cargo or not ...
 var cargo_amount: float = 0
@@ -91,6 +93,8 @@ func _on_delivered():
 	delivered += 1
 	print("Reset cargo amount")
 
+func struck_by_lightning():
+	apply_force(Vector3.DOWN * strike_force, $top.position)
 
 func _on_body_entered(_body):
 	if linear_velocity.length() > 3:

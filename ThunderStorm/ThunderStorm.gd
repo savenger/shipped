@@ -30,6 +30,7 @@ func _process(delta):
 		if _ship != null:
 			# Random damage
 			_ship.health -= randi_range(15, 30)
+			_ship.struck_by_lightning()
 			print("Hit by lightning: ", _ship.health)
 		
 		# Show lightning
