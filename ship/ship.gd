@@ -39,6 +39,8 @@ var submerged := false
 func _ready() -> void:
 	destination.delivered.connect(_on_delivered)
 	var cargo_ports = get_tree().get_nodes_in_group("cargo_port")
+	var destination_port = get_tree().get_nodes_in_group("destination_port")[0]
+	destination_port.unloading.connect(_on_unloading)
 	for port in cargo_ports:
 		port.ship_loading.connect(_on_ship_loading)
 
@@ -86,7 +88,14 @@ func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 	else:
 		# Loading ship
 		cargo_amount += progress
-		
+
+
+func _on_unloading(progress: float):
+	if progress <= 0:
+		return
+	print("do unload")
+	cargo_amount = progress
+
 
 func _on_delivered():
 	# Reset cargo amount

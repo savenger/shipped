@@ -6,7 +6,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vmw3e"]
 radius = 8.0
 
-[node name="destination" type="Node3D"]
+[node name="destination" type="Node3D" groups=["destination_port"]]
 script = ExtResource("1_w0csv")
 
 [node name="Area3D" type="Area3D" parent="."]
