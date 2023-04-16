@@ -58,5 +58,6 @@ func _on_body_exited(body: Node3D) -> void:
 		return
 	if _loading_state != LOADED_SHIP:
 		_loading_state = AWAITING_SHIP
+	_docked_ship.stop_loading_sound()
 	_docked_ship = null
 	CameraManager.set_current_camera(_parent.ship_camera)

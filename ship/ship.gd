@@ -86,6 +86,13 @@ func start_loading_sound():
 		if !$AudioLoadingBegin.playing:
 			$AudioLoadingBegin.play()
 
+func stop_loading_sound():
+	if $AudioLoading.playing or $AudioLoadingBegin.playing:
+		$AudioLoadingBegin.stop()
+		$AudioLoading.stop()
+		if !$AudioLoadingEnd.playing:
+			$AudioLoadingEnd.play()
+
 func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 	if cargo_amount >= cargo_capacity:
 		print("Ship at max capcity")
@@ -95,11 +102,7 @@ func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 		cargo_amount = progress
 		if cargo_amount == 100:
 			print("full cargo!!!")
-			if $AudioLoading.playing:
-				print("stop playing loading sound")
-				$AudioLoading.stop()
-			if !$AudioLoadingEnd.playing:
-				$AudioLoadingEnd.play()
+			stop_loading_sound()
 
 
 func _on_unloading(progress: float):
@@ -114,6 +117,9 @@ func _on_unloading(progress: float):
 func _on_delivered():
 	# Reset cargo amount
 	cargo_amount = 0
+	health += 30
+	health = max(100, health)
+	check_alert_mode()
 	delivered += 60
 	if $AudioLoading.playing:
 		$AudioLoading.stop()
@@ -124,21 +130,26 @@ func struck_by_lightning():
 	apply_force(Vector3.DOWN * strike_force, $top.position)
 	$AudioLightningStrike.play()
 
+func check_alert_mode():
+	$SpotLightAlert.visible = (health < 50.0)
+	$SpotLightAlert2.visible = (health < 50.0)
+	if health < 50.0:
+		thrust = MAX_THRUST / 2.0
+		brake = MAX_BRAKE / 2.0
+	else:
+		thrust = MAX_THRUST
+		brake = MAX_BRAKE
+
 func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
 		health -= int(linear_velocity.length())
 	print(health)
-	$SpotLightAlert.visible = (health < 50.0)
-	$SpotLightAlert2.visible = (health < 50.0)
-	if health < 50.0:
-		if thrust == MAX_THRUST:
-			thrust = MAX_THRUST / 2.0
-			brake = MAX_BRAKE / 2.0
-		if health <= 0.0 and not dead:
-			dead = true
-			$CollisionShape3D.visible = false
-			$AnimationPlayerDeath.play("death")
-			emit_signal("die", delivered)
+	check_alert_mode()
+	if health <= 0.0 and not dead:
+		dead = true
+		$CollisionShape3D.visible = false
+		$AnimationPlayerDeath.play("death")
+		emit_signal("die", delivered)
 
 
 func _on_audio_loading_begin_finished():
