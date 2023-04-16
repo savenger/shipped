@@ -9,7 +9,7 @@ var _waypoint_target: Vector3 = Vector3.ZERO
 
 
 func _ready():
-	_waypoint_target = Vector3(randf_range(0, 50), 15, randf_range(0, 50))
+	_waypoint_target = Vector3(randf_range(-50, 50), 15, randf_range(-50, 50))
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -18,7 +18,7 @@ func _process(delta):
 	# Tween cloud position
 	position = lerp(position, _waypoint_target, delta * _storm_speed)
 	if position.distance_to(_waypoint_target) < 2:
-		_waypoint_target = Vector3(randf_range(0, 50), 15, randf_range(0, 50))
+		_waypoint_target = Vector3(randf_range(-50, 50), 15, randf_range(-50, 50))
 		
 	
 	if !$LightningSprite.visible:

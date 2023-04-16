@@ -109,7 +109,6 @@ light_energy = 10.882
 omni_range = 246.754
 
 [node name="ship" parent="." node_paths=PackedStringArray("destination") instance=ExtResource("3_p70qk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 destination = NodePath("../destination")
 
 [node name="Follow" type="Node3D" parent="ship"]
@@ -126,23 +125,20 @@ transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0, 6.5, 
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="ThunderStorm" parent="." instance=ExtResource("15_ii5b1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6935, 15, 16.733)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m4ws3")
 
+[node name="ThunderStorm" parent="." instance=ExtResource("15_ii5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6935, 15, 16.733)
+
 [node name="ThunderStorm2" parent="." instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5483, 15, 71.6099)
-_storm_speed = 0.05
 
 [node name="ThunderStorm3" parent="." instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.6255, 15, -70.8407)
-_storm_speed = 0.1
 
 [node name="ThunderStorm4" parent="." instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.8656, 15, 69.7123)
-_storm_speed = 0.1
 
 [node name="buoy" parent="." instance=ExtResource("16_hhgii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9973, 0, 13.9182)

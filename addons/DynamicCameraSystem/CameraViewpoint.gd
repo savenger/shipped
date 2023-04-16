@@ -47,9 +47,9 @@ func _physics_process(delta):
 	var target_transform = follow.global_transform if follow != null else global_transform
 	_current_transform.origin = _current_transform.origin.lerp(target_transform.origin, delta * speed_movement)
 
-	if watch != null:
-		var looking_at = _current_transform.looking_at(watch.global_position, Vector3.UP)
-		_current_transform = _current_transform.interpolate_with(looking_at, delta * speed_rotation)
+	var watch_position = watch.global_position if watch != null else global_position
+	var looking_at = _current_transform.looking_at(watch_position, Vector3.UP)
+	_current_transform = _current_transform.interpolate_with(looking_at, delta * speed_rotation)
 		
 	if is_current():
 		_camera.global_transform = _current_transform
