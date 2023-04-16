@@ -25,7 +25,7 @@ func _process(delta):
 		_is_unloading = false
 		_unloaded_amount = 0
 		print("destination: delivered")
-		CameraManager.set_current_camera(ship_camera)
+#		CameraManager.set_current_camera(ship_camera)
 		return
 		
 	_timer += delta
@@ -43,7 +43,17 @@ func _on_area_3d_area_entered(_body):
 func _on_area_3d_body_entered(body):
 	if !body.is_in_group("ship"):
 		return
-	if body.cargo_amount < _expected_delivery:
-		return
+#	if body.cargo_amount < _expected_delivery:
+#		return
 	CameraManager.set_current_camera(destination_camera)
 	_is_unloading = true
+
+
+func _on_area_3d_area_exited(_area):
+#	CameraManager.set_current_camera(ship_camera)
+	pass
+
+
+func _on_area_3d_body_exited(_body):
+	_is_unloading = false
+	CameraManager.set_current_camera(ship_camera)
