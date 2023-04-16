@@ -42,6 +42,10 @@ func adjust_volume(adjustment):
 	$AudioStreamPlayer.volume_db += adjustment
 	$ship.get_node("AudioHorn").volume_db += adjustment
 	$ship.get_node("AudioLightningStrike").volume_db += adjustment
+	$ship.get_node("AudioLoading").volume_db += adjustment
+	$ship.get_node("AudioLoadingBegin").volume_db += adjustment
+	$ship.get_node("AudioLoadingEnd").volume_db += adjustment
+	$ship.get_node("AudioEngine").volume_db += adjustment
 	for storm in get_children():
 		if storm.is_in_group("storm"):
 			storm.get_node("AudioRain").volume_db += adjustment

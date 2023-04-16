@@ -81,7 +81,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 	state.apply_torque(rotation_direction * torque)
 	state.apply_force(($front.global_position - global_position) * 100 * acc)
 	$AudioEngine.pitch_scale = clamp(0.4 + linear_velocity.length() / 15, 0.8, 1)
-	print($AudioEngine.pitch_scale)
 func start_loading_sound():
 	if !$AudioLoading.playing:
 		if !$AudioLoadingBegin.playing:
