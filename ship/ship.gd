@@ -143,6 +143,7 @@ func check_alert_mode():
 func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
 		health -= int(linear_velocity.length())
+		$AudioCollision.play()
 	print(health)
 	check_alert_mode()
 	if health <= 0.0 and not dead:
