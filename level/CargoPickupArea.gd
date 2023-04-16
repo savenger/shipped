@@ -41,6 +41,7 @@ func _process(delta: float):
 			# Finished loading
 			_loading_state = LOADED_SHIP
 			_parent.ship_loaded.emit(_parent)
+			_loaded_amount = 0
 			print("Ship Loaded!")
 
 

@@ -20,6 +20,7 @@ func _process(delta):
 	if _is_unloading and _unloaded_amount >= _expected_delivery:
 		delivered.emit()
 		_is_unloading = false
+		_unloaded_amount = 0
 		print("destination: delivered")
 		return
 		
