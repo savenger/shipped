@@ -96,6 +96,7 @@ func _on_delivered():
 
 func struck_by_lightning():
 	apply_force(Vector3.DOWN * strike_force, $top.position)
+	$AudioLightningStrike.play()
 
 func _on_body_entered(_body):
 	if linear_velocity.length() > 3:
