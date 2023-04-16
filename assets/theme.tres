@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b3q1j5hf5rr2j"]
+
+[ext_resource type="FontFile" uid="uid://dnet633s8pul4" path="res://assets/Voltaire-Frangela.ttf" id="1_u1y50"]
+
+[resource]
+Fonts/fonts/normal = ExtResource("1_u1y50")
+Label/fonts/font = ExtResource("1_u1y50")

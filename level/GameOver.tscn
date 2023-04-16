@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmf212607i0tj"]
+[gd_scene load_steps=3 format=3 uid="uid://bmf212607i0tj"]
 
 [ext_resource type="Script" path="res://level/HUD.gd" id="1_lngww"]
+[ext_resource type="Theme" uid="uid://b3q1j5hf5rr2j" path="res://assets/theme.tres" id="2_64l56"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_lngww")
@@ -15,20 +16,32 @@ color = Color(0, 0, 0, 0.627451)
 
 [node name="Text" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="Text"]
+[node name="Title" type="Label" parent="Text"]
 offset_left = 94.0
 offset_top = 87.0
 offset_right = 1009.0
-offset_bottom = 165.0
-text = "Game Over.
+offset_bottom = 158.0
+theme = ExtResource("2_64l56")
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
 
-You sunk your ship.
+[node name="Label" type="Label" parent="Text"]
+offset_left = 99.0
+offset_top = 236.0
+offset_right = 1014.0
+offset_bottom = 371.0
+theme = ExtResource("2_64l56")
+theme_override_font_sizes/font_size = 32
+text = "You sunk your ship.
 No one can receive the precious goods any more. 
 Please be more careful next time. "
 
 [node name="Score" type="Label" parent="Text"]
-offset_left = 94.0
-offset_top = 263.0
-offset_right = 1009.0
-offset_bottom = 393.0
+offset_left = 97.0
+offset_top = 462.0
+offset_right = 1012.0
+offset_bottom = 592.0
+theme = ExtResource("2_64l56")
+theme_override_font_sizes/font_size = 50
 text = "You delivered X goods."
