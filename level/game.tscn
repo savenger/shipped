@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddqpjbaduw5w0"]
+[gd_scene load_steps=24 format=3 uid="uid://ddqpjbaduw5w0"]
 
 [ext_resource type="Script" path="res://level/terrain.gd" id="1_rwlqv"]
 [ext_resource type="Script" path="res://level/game.gd" id="1_t8u4u"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cmejtsul38hqv" path="res://Models/Bridge/ground_road.tscn" id="13_qsnl8"]
 [ext_resource type="AudioStream" uid="uid://iae0m4n1gxwt" path="res://assets/sounds/408442__wesselorg__wind-blow-mouth.wav" id="15_831q7"]
 [ext_resource type="PackedScene" uid="uid://lkfy15244dxg" path="res://ThunderStorm/thunder_storm.tscn" id="15_ii5b1"]
+[ext_resource type="Texture2D" uid="uid://cstovcg28typt" path="res://assets/skybox.png" id="16_eur4u"]
 [ext_resource type="PackedScene" uid="uid://dxqls6cijoiuy" path="res://level/buoy.tscn" id="16_hhgii"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqh76"]
@@ -28,10 +29,12 @@ material = SubResource("ShaderMaterial_aqh76")
 subdivide_width = 20
 subdivide_depth = 20
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_frta4"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rcx3m"]
+panorama = ExtResource("16_eur4u")
 
 [sub_resource type="Sky" id="Sky_m8w1y"]
-sky_material = SubResource("ShaderMaterial_frta4")
+sky_material = SubResource("PanoramaSkyMaterial_rcx3m")
+radiance_size = 4
 
 [sub_resource type="Environment" id="Environment_m4ws3"]
 background_mode = 2
