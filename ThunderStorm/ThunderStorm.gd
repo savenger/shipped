@@ -39,10 +39,10 @@ func _process(delta):
 		$LightningSprite.frame = frame_index
 		$LightningSprite.visible = true
 		$LightningFlash.visible = true
+		$AudioLightning.play()
 		await get_tree().create_timer(.2).timeout
 		$LightningSprite.visible = false
 		$LightningFlash.visible = false
-		$AudioLightning.play()
 		if randf() > 0.5:
 			$OmniLight3D.visible = true
 			await get_tree().create_timer(.1).timeout

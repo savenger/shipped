@@ -133,16 +133,16 @@ autoplay = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m4ws3")
 
-[node name="ThunderStorm" parent="." instance=ExtResource("15_ii5b1")]
+[node name="ThunderStorm" parent="." groups=["storm"] instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6935, 15, 16.733)
 
-[node name="ThunderStorm2" parent="." instance=ExtResource("15_ii5b1")]
+[node name="ThunderStorm2" parent="." groups=["storm"] instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5483, 15, 71.6099)
 
-[node name="ThunderStorm3" parent="." instance=ExtResource("15_ii5b1")]
+[node name="ThunderStorm3" parent="." groups=["storm"] instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.6255, 15, -70.8407)
 
-[node name="ThunderStorm4" parent="." instance=ExtResource("15_ii5b1")]
+[node name="ThunderStorm4" parent="." groups=["storm"] instance=ExtResource("15_ii5b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.8656, 15, 69.7123)
 
 [node name="buoy" parent="." instance=ExtResource("16_hhgii")]

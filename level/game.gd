@@ -37,17 +37,22 @@ func _on_delivered():
 	print("delivered some goods")
 	$destination.position = get_random_destination_position()
 
-func adjust_volume(vol):
-	$AudioStreamPlayer.volume_db = music_volume + vol
+func adjust_volume(adjustment):
+	print("Adjusting!")
+	$AudioStreamPlayer.volume_db += adjustment
+	$ship.get_node("AudioHorn").volume_db += adjustment
+	$ship.get_node("AudioLightningStrike").volume_db += adjustment
+	for storm in get_children():
+		if storm.is_in_group("storm"):
+			storm.get_node("AudioRain").volume_db += adjustment
+			storm.get_node("AudioLightning").volume_db += adjustment
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_released("volume_up"):
-		base_volume +=  5
-		adjust_volume(base_volume)
+		adjust_volume(5)
 	if Input.is_action_just_released("volume_down"):
-		base_volume -=  5
-		adjust_volume(base_volume)
+		adjust_volume(-5)
 
 func _on_die(delivered):
 	print("ship sank, you delivered %s goods" % delivered)
