@@ -3,7 +3,8 @@ extends Area3D
 @onready var _parent: CargoPort = get_parent()
 
 var _docked_ship: Node3D = null
-var _timer: float = 0
+var _timer: float = 0.0
+var _loaded_amount: float = 0.0
 var _loading_state: int = 0
 enum {
 	AWAITING_SHIP,
@@ -17,7 +18,7 @@ func _ready():
 	body_exited.connect(_on_body_exited)
 
 
-func _process(delta):
+func _process(delta: float):
 	if _loading_state != LOADING_SHIP:
 		return
 
@@ -27,16 +28,20 @@ func _process(delta):
 	if _docked_ship.cargo_amount >= _docked_ship.cargo_capacity:
 		return
 
-	# Loading ship
 	_timer += delta
-	var increment: float = (_parent.duration / _docked_ship.cargo_capacity) * 100
-	_parent.ship_loading.emit(_parent, increment)
 		
-	if _timer >= _parent.duration:
-		# Finished loading
-		_loading_state = LOADED_SHIP
-		_parent.ship_loaded.emit(_parent)
-		print("Ship Loaded!")
+	if _timer >= _parent.loading_speed:
+		_timer = 0
+		# Loading ship
+		_loaded_amount += 1
+		_parent.ship_loading.emit(_parent, _loaded_amount)
+		print("loading ", _loaded_amount)
+		
+		if _docked_ship.cargo_amount >= _docked_ship.cargo_capacity:
+			# Finished loading
+			_loading_state = LOADED_SHIP
+			_parent.ship_loaded.emit(_parent)
+			print("Ship Loaded!")
 
 
 func _on_body_entered(body: Node3D) -> void:

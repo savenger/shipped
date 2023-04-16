@@ -87,7 +87,7 @@ func _on_ship_loading(_cargo_port: CargoPort, progress: float):
 		print("Ship at max capcity")
 	else:
 		# Loading ship
-		cargo_amount += progress
+		cargo_amount = progress
 
 
 func _on_unloading(progress: float):
