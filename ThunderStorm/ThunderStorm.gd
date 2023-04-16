@@ -42,6 +42,7 @@ func _process(delta):
 		await get_tree().create_timer(.2).timeout
 		$LightningSprite.visible = false
 		$OmniLight3D.visible = false
+		$AudioLightning.play()
 
 
 func _on_body_entered(body: Node3D):

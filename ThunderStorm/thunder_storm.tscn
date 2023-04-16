@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://lkfy15244dxg"]
+[gd_scene load_steps=10 format=3 uid="uid://lkfy15244dxg"]
 
 [ext_resource type="Script" path="res://ThunderStorm/ThunderStorm.gd" id="1_0uv10"]
 [ext_resource type="Texture2D" uid="uid://blsj8j1cge4od" path="res://ThunderStorm/LightningTexture.png" id="2_1p26f"]
 [ext_resource type="QuadMesh" uid="uid://cesv6k7syl4ai" path="res://Materials/Smoke.tres" id="2_p4ilb"]
 [ext_resource type="QuadMesh" uid="uid://dqdos3ghwiyg1" path="res://ThunderStorm/RainMesh.tres" id="3_r86rw"]
+[ext_resource type="AudioStream" uid="uid://h1msceowpt4w" path="res://assets/sounds/464259__test_sound__thunderstorm.wav" id="5_tjru7"]
+[ext_resource type="AudioStream" uid="uid://dald3axva45sd" path="res://assets/sounds/lightning_strike.wav" id="6_qqd15"]
 
 [sub_resource type="Gradient" id="Gradient_i36v3"]
 offsets = PackedFloat32Array(0, 0.213287, 0.702797, 1)
@@ -62,3 +64,11 @@ hframes = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.93732, 0)
 light_energy = 6.961
 light_size = 0.479
+
+[node name="AudioRain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_tjru7")
+autoplay = true
+
+[node name="AudioLightning" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_qqd15")
+volume_db = 10.0

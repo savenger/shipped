@@ -63,7 +63,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		state.angular_velocity *= 1 - water_angular_drag 
 	var rotation_direction : Vector3 = Vector3(0, 0, 0)
 	if Input.is_action_just_pressed("horn"):
-		$AudioStreamPlayer2D.play()
+		if !$AudioHorn.playing:
+			$AudioHorn.play()
 	if Input.is_action_pressed("Turn Right"):
 		rotation_direction.y -= rot_speed
 	if Input.is_action_pressed("Turn Left"):
