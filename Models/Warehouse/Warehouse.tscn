@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bire28q8jcunx"]
+[gd_scene load_steps=13 format=3 uid="uid://bire28q8jcunx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jffh"]
 
@@ -65,6 +65,50 @@ shadow_mesh = SubResource("ArrayMesh_gpeif")
 [sub_resource type="BoxShape3D" id="BoxShape3D_aads4"]
 size = Vector3(3.6, 5, 6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_721jp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vjlju"]
+material = SubResource("StandardMaterial3D_721jp")
+size = Vector3(0.1, 5, 0.1)
+
+[sub_resource type="Animation" id="Animation_eqslm"]
+resource_name = "lantern_swinging"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.44862, 0, 0), Vector3(-1.74334, 0, 0), Vector3(-1.44862, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2kkny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.74334, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxt3k"]
+_data = {
+"RESET": SubResource("Animation_2kkny"),
+"lantern_swinging": SubResource("Animation_eqslm")
+}
+
 [node name="Warehouse" type="StaticBody3D"]
 
 [node name="Peir" type="MeshInstance3D" parent="."]
@@ -78,3 +122,24 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 7)
 shape = SubResource("BoxShape3D_aads4")
+
+[node name="Post" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35974, 3.11333, 9.53685)
+mesh = SubResource("BoxMesh_vjlju")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Post"]
+transform = Transform3D(1, 0, 0, 0, -0.171688, 0.985151, 0, -0.985151, -0.171688, 0, 2.39351, 0)
+light_color = Color(1, 0.929412, 0.298039, 1)
+light_energy = 11.0
+spot_range = 18.34
+spot_angle = 22.5
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Post"]
+light_color = Color(1, 1, 0.286275, 1)
+light_energy = 2.569
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Post"]
+autoplay = "lantern_swinging"
+libraries = {
+"": SubResource("AnimationLibrary_hxt3k")
+}
